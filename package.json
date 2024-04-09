@@ -10,7 +10,13 @@
     "test": "vitest"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.15",
+    "@mui/x-date-pickers": "^7.1.1",
+    "@prisma/client": "^5.12.1",
     "clsx": "^2.1.0",
+    "dayjs": "^1.11.10",
     "next": "14.1.4",
     "prisma": "^5.12.1",
     "react": "^18",

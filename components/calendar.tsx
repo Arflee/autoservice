@@ -30,6 +30,7 @@ function isReservable(day: Date) {
 export default function Calendar() {
     const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
     const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+    const [selectedDate, setSelectedDate] = useState(new Date(0));
 
     const handlePrevMonth = () => {
         setCurrentMonth(prevMonth => (prevMonth == 0 ? 11 : prevMonth - 1));
@@ -41,6 +42,10 @@ export default function Calendar() {
         setCurrentYear(prevYear => (currentMonth == 11 ? prevYear + 1 : prevYear));
     };
 
+    const handleDateSelect = (clickedDate: Date) => {
+        setSelectedDate(clickedDate);
+    };
+
     function renderCalendarDays() {
         const firstDayOfMonth = new Date(currentYear, currentMonth).getDay();
         const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
@@ -48,20 +53,52 @@ export default function Calendar() {
         let daysArray: React.JSX.Element[] = [];
         for (let i = 1; i <= daysInMonth; i++) {
             const date = new Date(currentYear, currentMonth, i, new Date().getHours() + 1);
-            const classNames = `cursor-pointer text-center p-2 ${
-                    !isReservable(date) ? 'bg-gray-300' :
-                    isFull(date) ? 'bg-red-200' : 'bg-green-400 hover:bg-green-300'
-                }`;
+            if(!isReservable(date)){
+                daysArray.push(
+                    <div className="cursor-pointer text-center p-2 bg-gray-300">
+                        {i}
+                    </div>
+                );
+            }else if(isFull(date)){
+                daysArray.push(
+                    <div className="cursor-pointer text-center p-2 bg-red-200">
+                        {i}
+                    </div>
+                );
+            }else{
+                const color = selectedDate && selectedDate.getDate() == i ? 'bg-green-600' : 'bg-green-400 hover:bg-green-600';
                 
-            daysArray.push(
-                <div className={classNames}>
-                    {i}
-                </div>
-            );
+                daysArray.push(
+                    <div 
+                     className={`cursor-pointer text-center p-2 ${color}`}
+                     onClick={()=>handleDateSelect(date)}
+                    >
+                        {i}
+                    </div>
+                );
+            }
         }
 
 
         return (daysArray);
+    }
+
+    function renderTimeSlots(){
+        if (!selectedDate) return null;
+
+        const openingHour = 8;
+        const closingHour = 17;
+        const timeslots = [];
+        for (let i = openingHour; i < closingHour; ++i) {
+            timeslots.push(
+                <div
+                  className="cursor-pointer text-center p-2 bg-green-200 hover:bg-green-300"
+                >
+                  {`${i}:00 - ${i + 1}:00`}
+                </div>
+            );
+        }
+        return timeslots;
     }
 
     return (
@@ -80,7 +117,7 @@ export default function Calendar() {
             <div className="grid grid-cols-7">
                 {renderCalendarDays()}
             </div>
-
+            {renderTimeSlots()}
         </div>
 
     );

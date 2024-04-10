@@ -1,8 +1,8 @@
-import Calendar from "@/components/calendar";
+import MyCalendar from "@/components/calendar";
 
 export default function Page()
 {
     return (
-        <Calendar/>
+        <MyCalendar/>
     );
 }

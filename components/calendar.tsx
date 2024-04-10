@@ -6,14 +6,8 @@ import Calendar from 'react-calendar';
 function fetchAvailableTimeSlots(date: Date) {
   //TODO: function should fetch from the database, this is just a simulation
   //should be part of some DataMapper of reservations
-
-  return [
-    '08:00 - 09:00',
-    '09:00 - 10:00',
-    '10:00 - 11:00',
-    '11:00 - 12:00',
-    '12:00 - 13:00',
-  ];
+  //the number is the starting hour of timeslot
+  return [8,9,10,11,12];
 }
 
 function tileDisabled({ date }: { date: Date }): boolean {
@@ -29,17 +23,13 @@ function tileDisabled({ date }: { date: Date }): boolean {
 
 export default function MyCalendar() {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
-  const [timeSlots, setTimeSlots] = useState(['']);
-
-
-  function showAvailableTimeSlots(date: Date) {
-    setTimeSlots(fetchAvailableTimeSlots(date));
-  }
+  const [timeSlots, setTimeSlots] = useState([0]);
+  const [selectedTimeSlot, setSelectedTimeSlot] = useState<Number | null>(null);
 
   function daySelect(date: Date) {
     setSelectedDate(date);
     console.log(selectedDate);
-    showAvailableTimeSlots(date);
+    setTimeSlots(fetchAvailableTimeSlots(date));
   }
 
   const today = new Date();
@@ -57,11 +47,13 @@ export default function MyCalendar() {
           <h2 className="text-xl font-semibold mb-2">Available Time Slots for {selectedDate.toDateString()}</h2>
           <ul>
             {timeSlots.map((timeSlot, index) => (
-              <li key={index}>{timeSlot}</li>
+              <li className="cursor-pointer" onClick={()=>setSelectedTimeSlot(timeSlot)}>{timeSlot}:00 - {timeSlot+1}:00</li>
             ))}
           </ul>
         </div>
       )}
+      <br/>
+      <p>Selected timeslot: {selectedTimeSlot}</p>
     </div>
   );
 }

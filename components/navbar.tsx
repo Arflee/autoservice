@@ -24,7 +24,7 @@ export default function Navbar() {
 <div>
 
       <Link href="/">
-        <div className="ml-10 mr-10 relative top-4">
+        <div className="ml-10 mr-10 relative top-5">
           <Image
             src={logo}
             alt="Autoservis logo"

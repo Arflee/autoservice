@@ -53,7 +53,7 @@ export default function MyCalendar() {
         </div>
       )}
       <br/>
-      <p>Selected timeslot: {selectedTimeSlot}</p>
+      <p>Selected timeslot: {`${selectedTimeSlot}`}</p>
     </div>
   );
 }

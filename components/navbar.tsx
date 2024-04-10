@@ -1,13 +1,14 @@
-'use client'
+"use client";
 
 import Link from "next/link";
-import { usePathname } from 'next/navigation'
+import { usePathname } from "next/navigation";
+import clsx from "clsx";
 
 const links = [
   { path: "/", name: "Home" },
   { path: "/services", name: "Services" },
-  { path: "/contacts", name: "Contacts" },
   { path: "/reservation", name: "Reservation" },
+  { path: "/contacts", name: "Contacts" },
 ];
 
 export default function Navbar() {

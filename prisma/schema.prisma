@@ -1,0 +1,79 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("POSTGRES_PRISMA_URL")
+}
+
+model administrator {
+  bankovniucet    String @db.VarChar(50)
+  plat            Float
+  administratorid Int    @id(map: "pk_administrator") @default(autoincrement())
+  role            role   @relation(fields: [administratorid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_administrator_role")
+}
+
+/// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
+model mechanik {
+  bankovniucet String      @db.VarChar(50)
+  plat         Float
+  specializace String      @db.VarChar(50)
+  mechanikid   Int         @id(map: "pk_mechanik") @default(autoincrement())
+  role         role        @relation(fields: [mechanikid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_mechanik_role")
+  rezervace    rezervace[]
+}
+
+model osoba {
+  email    String @db.VarChar(50)
+  jmeno    String @db.VarChar(50)
+  prijmeni String @db.VarChar(50)
+  telcislo String @db.VarChar(50)
+  osobaid  Int    @id(map: "pk_osoba") @default(autoincrement())
+  role     role[]
+}
+
+model rezervace {
+  cas         DateTime  @db.Time(0)
+  cena        Float
+  datum       DateTime  @db.Date
+  rezervaceid Int       @id(map: "pk_rezervace") @default(autoincrement())
+  mechanikid  Int?
+  vozidloid   Int
+  mechanik    mechanik? @relation(fields: [mechanikid], references: [mechanikid], onDelete: NoAction, onUpdate: NoAction, map: "fk_rezervace_pridelena")
+  vozidlo     vozidlo   @relation(fields: [vozidloid], references: [vozidloid], onDelete: NoAction, onUpdate: NoAction, map: "fk_rezervace_soucasti")
+  sluzba      sluzba[]
+}
+
+model role {
+  roleid        Int            @id(map: "pk_role") @default(autoincrement())
+  osobaid       Int
+  administrator administrator?
+  mechanik      mechanik?
+  osoba         osoba          @relation(fields: [osobaid], references: [osobaid], onDelete: NoAction, onUpdate: NoAction, map: "fk_role_osoba")
+  zakaznik      zakaznik?
+}
+
+model sluzba {
+  nazev                   String    @db.VarChar(50)
+  odhadovanadobaprovedeni String?   @db.VarChar(50)
+  pribliznacena           Float?
+  sluzbaid                Int       @id(map: "pk_sluzba") @default(autoincrement())
+  rezervaceid             Int
+  rezervace               rezervace @relation(fields: [rezervaceid], references: [rezervaceid], onDelete: NoAction, onUpdate: NoAction, map: "fk_sluzba_bude")
+}
+
+model vozidlo {
+  model      String      @db.VarChar(100)
+  spz        String      @db.VarChar(8)
+  vozidloid  Int         @id(map: "pk_vozidlo") @default(autoincrement())
+  zakaznikid Int
+  rezervace  rezervace[]
+  zakaznik   zakaznik    @relation(fields: [zakaznikid], references: [zakaznikid], onDelete: NoAction, onUpdate: NoAction, map: "fk_vozidlo_je")
+}
+
+model zakaznik {
+  zakaznikid Int       @id(map: "pk_zakaznik") @default(autoincrement())
+  vozidlo    vozidlo[]
+  role       role      @relation(fields: [zakaznikid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_zakaznik_role")
+}

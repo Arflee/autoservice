@@ -1,12 +1,27 @@
 import ServiceCard from "@/components/serviceCard";
+import { Service } from "../lib/definitions";
 
-export default function Page()
-{
-    //todo make cards grid with all available services
-    return (
-        <main>
-            <p>This is services page!</p>
-            <ServiceCard/>
-        </main>
-    );
+const testService: Service = {
+  name: "Test",
+  description:
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ligula tempor, suscipit lacus et, laoreet du",
+  short_button_text: "Buy",
+  image_url: "/512x256.jpg",
+};
+
+export default function Page() {
+  //todo make cards grid with all available services
+  return (
+    <main className="grid grid-cols-4">
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+      <ServiceCard service={testService} />
+    </main>
+  );
 }

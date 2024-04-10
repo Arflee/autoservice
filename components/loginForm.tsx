@@ -1,7 +1,12 @@
+import { redirect } from "next/dist/server/api-utils";
+
+function submit(){
+  //TODO: check credentials in the DB, if correct redirect to admin
+}
+
 export default function LoginForm() {
-    //TODO: on submit, check credentials and if correct redirect to admin panel
     return (
-      <form className="flex flex-col w-64 mx-auto p-4 rounded-lg shadow-md bg-blue-200 mt-[10%] mb-[10%]">
+      <form onSubmit={submit} className="flex flex-col w-64 mx-auto p-4 rounded-lg shadow-md bg-blue-200 mt-[10%] mb-[10%]">
         <input
           type="text"
           placeholder="Username"

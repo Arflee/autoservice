@@ -1,3 +1,5 @@
+'use client';
+
 import { redirect } from "next/dist/server/api-utils";
 
 function submit(){
@@ -21,9 +23,6 @@ export default function LoginForm() {
         <button type="submit" className="btn btn-primary">
           Login
         </button>
-        <a href="#" className="text-sm text-blue-500 mx-auto pt-5">
-          Forgot password?
-        </a>
       </div>
       </form>
     );

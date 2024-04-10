@@ -13,20 +13,35 @@ const links = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const isLoggedIn = false; // TODO: replace this with your actual login state
 
   return (
-    <nav className="navbar bg-base-100">
-      {links.map((el) => (
-        <Link
-          className={clsx("btn btn-active text-xl m-1", {
-            "bg-primary": pathname == el.path,
-          })}
-          href={el.path}
-          key={el.name}
-        >
-          {el.name}
-        </Link>
-      ))}
+    <nav className="md:navbar bg-base-100 flex justify-between ">
+      <div>
+        {links.map((el) => (
+          el.path === pathname ? (
+            <Link className="btn btn-active btn-neutral text-xl m-1" href={el.path} key={el.name}>
+              {el.name}
+            </Link>
+          ) : (
+            <Link className="btn btn-ghost text-xl m-1" href={el.path} key={el.name}>
+              {el.name}
+            </Link>
+          )
+        ))}
+      </div>
+      <div>
+        {/*login for employees where manager is going to be assigning reservations to emloyees and mechanics are going see their assigned reservations*/}
+        {isLoggedIn ? (
+          <Link className="btn btn-active btn-neutral text-xl m-1" href="/admin">
+            Admin
+          </Link>
+        ) : (
+          <Link className="btn btn-active btn-neutral text-xl m-1" href="/login">
+            Login
+          </Link>
+        )}
+      </div>
     </nav>
   );
 }

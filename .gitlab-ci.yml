@@ -24,7 +24,7 @@ stages:          # List of stages for jobs, and their order of execution
 test-job:
     stage: test
     script:
-        -npm i react-calendar
+        - npm i react-calendar
 
 
 # build-job:       # This job runs in the build stage, which runs first.

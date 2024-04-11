@@ -19,7 +19,7 @@
 stages:          # List of stages for jobs, and their order of execution
 #   - build
 #   - deploy
-    -test
+    - test
 
 test-job:
     stage: test

@@ -21,6 +21,8 @@ stages:          # List of stages for jobs, and their order of execution
 #   - deploy
     - test
 
+image: node
+
 test-job:
     stage: test
     script:

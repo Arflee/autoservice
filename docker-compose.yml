@@ -1,0 +1,23 @@
+version: '3.9'
+
+services:
+  db:
+    container_name: autoservice-db
+    image: postgres:latest
+    ports:
+      - 5432:5432
+    env_file:
+      - .env
+    volumes: 
+    - ./db-data/1-generate-db.sql:/docker-entrypoint-initdb.d/1-generate-db.sql
+    - ./db-data/2-fill-db.sql:/docker-entrypoint-initdb.d/2-fill-db.sql
+
+    restart: always
+  
+  frontend:
+    container_name: autoservice-frontend
+    image: autoservice-frontend
+    ports:
+      - 3000:3000
+    depends_on:
+      - db

@@ -6,11 +6,6 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 
 export default function Page() {
   return (
-    <>
-    <LocalizationProvider dateAdapter={AdapterDayjs}>
-      <DatePicker />
-        </LocalizationProvider>
       <MyCalendar />
-    </>
   );
 }

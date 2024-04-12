@@ -6,25 +6,25 @@ const frequentServices: Service[] = [
     name: "asdasd",
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/512x256.jpg",
+    image_url: "/mech.webp",
   },
   {
     name: "asdasd",
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/512x256.jpg",
+    image_url: "/mech.webp",
   },
   {
     name: "asdasd",
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/512x256.jpg",
+    image_url: "/mech.webp",
   },
   {
     name: "asdasd",
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/512x256.jpg",
+    image_url: "/mech.webp",
   },
 ];
 

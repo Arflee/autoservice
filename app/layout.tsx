@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html data-theme="corporate" lang="en">
       <body suppressHydrationWarning className={inter.className}>
-        <Navbar/>
-        {children}
-        <Footer/>
+          <Navbar />
+          {children}
+          <Footer />
       </body>
     </html>
   );

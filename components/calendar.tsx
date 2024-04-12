@@ -47,13 +47,13 @@ export default function MyCalendar() {
           <h2 className="text-xl font-semibold mb-2">Available Time Slots for {selectedDate.toDateString()}</h2>
           <ul>
             {timeSlots.map((timeSlot, index) => (
-              <li className="cursor-pointer" onClick={()=>setSelectedTimeSlot(timeSlot)}>{timeSlot}:00 - {timeSlot+1}:00</li>
+              <li key={index} className="cursor-pointer" onClick={()=>setSelectedTimeSlot(timeSlot)}>{timeSlot}:00 - {timeSlot+1}:00</li>
             ))}
           </ul>
         </div>
       )}
       <br/>
-      <p>Selected timeslot: {selectedTimeSlot}</p>
+      <p>Selected timeslot: {selectedTimeSlot?.toString()}</p>
     </div>
   );
 }

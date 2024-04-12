@@ -1,9 +1,10 @@
 import { PrismaClient } from '@prisma/client'
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
+export { prisma };
 
 async function main() {
-    const allUsers = await prisma.customers.findMany()
+    const allUsers = await prisma.osoba.findMany();
     console.log(allUsers)
 }
 

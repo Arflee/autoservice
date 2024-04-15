@@ -22,19 +22,13 @@ const frequentServices: Service[] = [
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
-  },
-  {
-    name: "asasd",
-    description: "qweqweqwe",
-    short_button_text: "buy",
-    image_url: "/mech.webp",
-  },
+  }
 ];
 
 export default function Home() {
   return (
     <main>
-      <div className="relative">
+      <div className="relative mb-10">
         <div className="brightness-50 ">
           <Image
             src="/homepage.jpg"
@@ -51,12 +45,29 @@ export default function Home() {
           </Link>
         </div>
       </div>
+     
+      <div className="text-center m-10">
+        <Link href="/reservation" className="inline-block  text-xl px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200">
+          Rychlé objednání do autoservisu – tel: 111 222 333 nebo využijte online rezervaci.
+        </Link>
+      </div>
 
-      <p className="text-3xl font-bold">S čím vám můžeme pomoci?</p>
+      <h2 className="text-3xl font-bold mb-4 text-center">S čím vám můžeme pomoci?</h2>
       <div className="grid grid-cols-3">
         {frequentServices.map((el) => (
           <ServiceCard key={el.name} service={el} />
         ))}
+      </div>
+
+      <div className="max-w-4xl mx-auto m-8">
+        <h2 className="text-3xl font-bold mb-4 text-center">O nás</h2>
+        <p className="text-lg mb-5">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor feugiat felis sagittis cursus. Duis nunc nisi, varius eu nibh a, volutpat facilisis eros. Sed quis imperdiet libero. Vivamus varius arcu et est dignissim, eu semper erat posuere. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae. Cras nec consectetur erat. Sed semper iaculis orci, vitae sodales nibh hendrerit et. Nunc tristique leo sed est tristique, non tempor lectus elementum.
+        </p>
+        <p className="text-lg mb-5">
+          Duis ultricies ullamcorper quam eget condimentum. Mauris non tristique turpis, quis auctor odio. Cras fringilla leo ut nisl tempus, ac condimentum ligula rutrum. Maecenas non dictum tortor. Vestibulum efficitur lectus sit amet odio commodo, nec imperdiet justo sollicitudin. Quisque nec mollis mi. Donec vitae diam sed sapien gravida pulvinar. Pellentesque quis ligula rutrum, suscipit erat et, porttitor ex.
+        </p>
+
       </div>
     </main>
   );

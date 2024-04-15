@@ -3,20 +3,15 @@ import Link from "next/link";
 export default function Footer() {
   //todo make useful links
   return (
-    <footer className="footer footer-center p-10 bg-base-200 text-base-content rounded">
+    <footer className="footer footer-center p-10 bg-base-200 text-base-content mt-20">
       <nav className="grid grid-flow-col gap-4">
-        <Link className="link link-hover" href="/about-us">
-          About us
-        </Link>
-        <Link className="link link-hover" href="/contacts">
-          Contacts
-        </Link>
+        <Link className="link link-hover" href="/contacts">Kontakty</Link>
+        <Link className="link link-hover" href="/services">Naše služby</Link>
+        <Link className="link link-hover" href="#">Obchodní podmínky</Link>
+        <Link className="link link-hover" href="#">Zásady ochrany osobních údajů</Link>
       </nav>
       <aside>
-        <p>
-          Copyright © 2024 asdasdasdasd- All right reserved by ACME Industries
-          Ltd
-        </p>
+        <p>Copyright © 2024 - All right reserved by Autoservis SWI</p>
       </aside>
     </footer>
   );

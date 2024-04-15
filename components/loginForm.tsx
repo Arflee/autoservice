@@ -10,7 +10,7 @@ export default function LoginForm() {
   return (
     <form
       onSubmit={submit}
-      className="flex flex-col w-64 mx-auto p-4 rounded-lg shadow-md bg-blue-200 mt-[10%] mb-[10%]"
+      className="flex flex-col w-64 mx-auto p-4 rounded-lg shadow-md bg-white m-10"
     >
       <input
         type="text"
@@ -23,7 +23,7 @@ export default function LoginForm() {
         className="input input-bordered mb-4"
       />
       <div className="flex justify-between flex-col mb-4">
-        <button type="submit" className="btn btn-primary">
+        <button type="submit" className="inline-block px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200">
           Login
         </button>
       </div>

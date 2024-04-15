@@ -28,7 +28,7 @@ export default function Page() {
                             objednavky@swi.cz
                         </p>
                         <p className="mb-10">
-                            <strong>Mobil</strong>:
+                            <strong>Tel</strong>:
                             111 222 333
                         </p>
                         <p>

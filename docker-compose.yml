@@ -17,6 +17,9 @@ services:
   frontend:
     container_name: autoservice-frontend
     image: autoservice-frontend
+    build:
+      context: .
+      dockerfile: Dockerfile
     ports:
       - 3000:3000
     depends_on:

@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/navbar";
 import Footer from "../components/footer";
+import SessionWrapper from "@/components/sessionWrapper";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -17,12 +18,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html data-theme="corporate" lang="en">
-      <body suppressHydrationWarning className={inter.className}>
+    <SessionWrapper>
+      <html data-theme="corporate" lang="en">
+        <body suppressHydrationWarning className={inter.className}>
           <Navbar />
           {children}
           <Footer />
-      </body>
-    </html>
+        </body>
+      </html>
+    </SessionWrapper>
   );
 }

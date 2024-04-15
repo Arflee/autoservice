@@ -23,7 +23,8 @@
     "prisma": "^5.12.1",
     "react": "^18",
     "react-calendar": "^4.8.0",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "sharp": "0.33.0"
   },
   "devDependencies": {
     "@testing-library/react": "^14.3.0",

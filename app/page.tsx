@@ -3,25 +3,25 @@ import { Service } from "./lib/definitions";
 
 const frequentServices: Service[] = [
   {
-    name: "asdasd",
+    name: "asdas",
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
   },
   {
-    name: "asdasd",
+    name: "asdsd",
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
   },
   {
-    name: "asdasd",
+    name: "sdasd",
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
   },
   {
-    name: "asdasd",
+    name: "asasd",
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",

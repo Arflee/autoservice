@@ -10,7 +10,7 @@ export default function Footer() {
         <Link className="link link-hover" href="/contacts">Contacts</Link>
       </nav>
       <aside>
-        <p>Copyright © 2024 - All right reserved by ACME Industries Ltd</p>
+        <p>Copyright © 2024 asdasdasdasd- All right reserved by ACME Industries Ltd</p>
       </aside>
     </footer>
   );

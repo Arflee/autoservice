@@ -19,20 +19,20 @@ export default function Navbar() {
   const isLoggedIn = false; // TODO: replace this with your actual login state
 
   return (
-    <nav className="navbar bg-base-200 flex justify-between mb-20">
+    <nav className="navbar bg-base-200 flex justify-between">
 
-<div>
+      <div>
 
-      <Link href="/">
-        <div className="ml-10 mr-10 relative top-5">
-          <Image
-            src={logo}
-            alt="Autoservis logo"
-            width={230}
-            className="mt"
-          />
-        </div>
-      </Link>
+        <Link href="/">
+          <div className="ml-10 mr-10 ">
+            <Image
+              src={logo}
+              alt="Autoservis logo"
+              width={230}
+              className="mt"
+            />
+          </div>
+        </Link>
         {links.map((el) => (
           el.path === pathname ? (
             <Link className="btn btn-active btn-neutral text-xl m-1 text-slate-300" href={el.path} key={el.name}>
@@ -48,11 +48,11 @@ export default function Navbar() {
       <div>
         {/*login for employees where manager is going to be assigning reservations to emloyees and mechanics are going see their assigned reservations*/}
         {isLoggedIn ? (
-          <Link className="btn btn-neutral text-xl m-1" href="/admin">
+          <Link className="btn btn-ghost text-xl m-1 text-slate-800" href="/admin">
             Admin
           </Link>
         ) : (
-          <Link className="btn btn-neutral text-xl m-1" href="/login">
+          <Link className="btn btn-ghost text-xl m-1 text-slate-800" href="/login">
             Login
           </Link>
         )}

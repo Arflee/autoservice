@@ -27,16 +27,14 @@ export default function Page(props: Props) {
   };
   return (
     <div className={props.className}>
-      <div className="bg-gradient-to-b  from-slate-50 to-slate-200 p-2 text-center text-slate-600">
-        Login Form
-      </div>
+      <h2 className="text-3xl font-bold m-20 text-center">Vstup do zaměstnanecké zóny</h2>
       {!!props.error && (
         <p className="bg-red-100 text-red-600 text-center p-2">
           Authentication Failed
         </p>
       )}
     <form onSubmit={onSubmit}
-      className="flex flex-col w-64 mx-auto p-4 rounded-lg shadow-md bg-blue-200 mt-[10%] mb-[10%]"
+      className="flex flex-col w-64 mx-auto p-4 rounded-lg shadow-md bg-white mb-[10%]"
     >
       <input
         name="username"
@@ -52,7 +50,7 @@ export default function Page(props: Props) {
         className="input input-bordered mb-4"
         onChange={(e) => (pass.current = e.target.value)}
       />
-      <button type="submit" className="btn btn-primary">
+      <button type="submit" className="inline-block mt-2 px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200">
         Login
       </button>
     </form>

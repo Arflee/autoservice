@@ -42,26 +42,29 @@ export default function MyCalendar() {
   }
 
   return (
-    <div>
+    <div className='grid grid-cols-2 mx-[20%]'>
       <Calendar
         tileClassName={tileClassName}
         onClickDay={daySelect}
         selectRange={false} // Prevent selecting ranges
       />
-      {selectedDate && (
-        <div>
-          <h2 className="text-xl font-semibold mb-2">Available Time Slots for {selectedDate.toDateString()}</h2>
-          <ul>
-            {timeSlots.map((timeSlot, index) => (
-              <li key={index} className="cursor-pointer" onClick={() => setSelectedTimeSlot(timeSlot)}>
-                {timeSlot}:00 - {timeSlot + 1}:00
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-      <br />
-      <p>Selected timeslot: {selectedTimeSlot != null ? `${selectedTimeSlot}:00 - ${selectedTimeSlot + 1}:00` : 'None'}</p>
+      <div>
+        {selectedDate && (
+          <div>
+            <h2 className="text-xl font-semibold mb-2">Available Time Slots for {selectedDate.toDateString()}</h2>
+            <ul>
+              {timeSlots.map((timeSlot, index) => (
+                <li key={index} className="cursor-pointer" onClick={() => setSelectedTimeSlot(timeSlot)}>
+                  {timeSlot}:00 - {timeSlot + 1}:00
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+        <br />
+        <p>Vybraný termín: {selectedTimeSlot != null ? `${selectedTimeSlot}:00 - ${selectedTimeSlot + 1}:00` : 'None'}</p>
+      </div>
+
     </div>
   );
 }

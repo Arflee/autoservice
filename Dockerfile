@@ -1,12 +1,12 @@
-FROM node:21-slim as base
+FROM node:21-alpine as base
 
 # Install dependencies only when needed
 FROM base AS deps
-RUN apt-get clean
-RUN apt install libc6
+RUN apk add libc6-compat
 WORKDIR /app
 
 COPY package.json package-lock.json* ./
+COPY prisma ./
 RUN npm ci
 
 FROM base AS builder
@@ -14,6 +14,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 ENV NEXT_TELEMETRY_DISABLED 1
+
+RUN npx prisma db pull
+RUN npx prisma generate
 
 RUN npm run build
 FROM base AS runner
@@ -35,4 +38,5 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 USER nextjs
 EXPOSE 3000
 ENV PORT 3000
+
 CMD HOSTNAME="0.0.0.0" node server.js

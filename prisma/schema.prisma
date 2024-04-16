@@ -10,9 +10,9 @@ datasource db {
 model administrator {
   bankovniucet    String @db.VarChar(50)
   plat            Float
-  administratorid Int    @id(map: "pk_administrator") @default(autoincrement())
   heslo           String @db.VarChar(50)
-  login           String @db.VarChar(50)
+  email           String @db.VarChar(50)
+  administratorid Int    @id(map: "pk_administrator") @default(autoincrement())
   role            role   @relation(fields: [administratorid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_administrator_role")
 }
 

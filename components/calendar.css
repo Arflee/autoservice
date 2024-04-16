@@ -1,0 +1,28 @@
+.react-calendar {
+  width: 100%;
+  max-width: 400px;
+  background-color: white;
+}
+
+/* Styles for disabled days */
+.react-calendar .disabled {
+  background-color: #d3d3d3; /* gray */
+  color: #8a8a8a; /* lighter gray for text */
+  pointer-events: none; /* Prevent clicking on disabled days */
+}
+
+/* Styles for available days */
+.react-calendar .available {
+  background-color: #7de87d; /* green */
+}
+
+/* Styles for unavailable days */
+.react-calendar .unavailable {
+  background-color: #ff9999; /* red */
+  pointer-events: none; /* Prevent clicking on unavailable days */
+}
+
+/* Styles for selected day */
+.react-calendar .react-calendar__tile--active {
+  background-color: #66c2ff; /* light blue */
+}

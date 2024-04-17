@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-INSERT INTO Osoba (Email, Jmeno, Prijmeni, TelCislo)
-VALUES ('jan@gmail.com', 'Jan', 'Novak', '+42056394739');
-
-INSERT INTO Role (osobaid)
-VALUES (1);
-
-INSERT INTO Administrator (bankovniucet, plat, heslo, email)
-VALUES ('test123', 100500, '123', 'login@asd');
-=======
 insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('mhartill0@about.me', 'Maryanne', 'Hartill', '+63 986 551 0604');
 insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('afetherby1@desdev.cn', 'Alva', 'Fetherby', '+380 934 664 1723');
 insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('ycandlish2@blog.com', 'York', 'Candlish', '+63 230 564 8518');
@@ -28,6 +18,8 @@ insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('smaccarrickg@reddi
 insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('mprobetsh@scribd.com', 'Maridel', 'Probets', '+66 913 604 0705');
 insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('tchurcheri@soup.io', 'Thoma', 'Churcher', '+62 451 194 9552');
 insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('dgethynj@dmoz.org', 'Danie', 'Gethyn', '+33 543 193 6332');
+insert into Osoba (Email, Jmeno, Prijmeni, TelCislo) values ('test@test', '123', 'Gethyn', '+33 543 193 6332');
+
 
 insert into Administrator (BankovniUcet, Plat) values ('2534287389', 26601);
 insert into Administrator (BankovniUcet, Plat) values ('4755287332', 27162);
@@ -141,4 +133,3 @@ insert into Rezervace (Cas, Cena, Datum, MechanikID, VozidloID) values ('13:30',
 insert into Rezervace (Cas, Cena, Datum, MechanikID, VozidloID) values ('19:30', 1620, '18/04/2024', 2, 18);
 insert into Rezervace (Cas, Cena, Datum, MechanikID, VozidloID) values ('13:30', 2691, '24/04/2024', 1, 19);
 insert into Rezervace (Cas, Cena, Datum, MechanikID, VozidloID) values ('13:30', 4765, '06/04/2024', 1, 20);
->>>>>>> 3cd13420758153ac2ed29779d635f06718cba357

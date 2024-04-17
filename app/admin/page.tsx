@@ -1,16 +1,17 @@
 'use client';
 import LogOutButton from "@/components/logOutButton";
-import { getServerSession } from "next-auth";
-import { redirect } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useState, useEffect } from 'react';
+import { useSession } from "next-auth/react";
 
-export default async function Home() {
-    const session = await getServerSession();
-
-    if (!session) {
-        redirect("/login");
-    }
+export default function Home() {
+    const session = useSession({
+        required: true,
+        onUnauthenticated(){
+            redirect("/login");
+        }
+    });
     return (
         <main>
             {isManager() ? <ManagerPage /> : <MechanicPage />}

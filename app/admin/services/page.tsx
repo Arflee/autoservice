@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { redirect } from "next/navigation";
 import LogOutButton from "@/components/logOutButton";
 import Link from 'next/link';
+import { sluzba } from '@prisma/client';
+import { GetServerSideProps } from 'next';
 
 const placeholderServices = [
     {
@@ -26,10 +28,8 @@ const isManager = () => {
 };
 
 const fetchServices = async () => {
-    //TODO: replace with actual fetching services from db 
-    return new Promise<{ id: number; name: string; }[]>((resolve) => {
-        resolve(placeholderServices);
-    });
+    const services = await fetch('/api/services')
+    return services.json();
 };
 
 const addService = () => {
@@ -52,7 +52,7 @@ export default function Home() {
         redirect("admin");
     }
 
-    const [services, setServices] = useState<any[]>([]);
+    const [services, setServices] = useState<sluzba[]>([]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -88,10 +88,10 @@ export default function Home() {
                     </thead>
                     <tbody>
                         {services.map((service) => (
-                            <tr key={service.id}>
-                                <td>{service.name}</td>
-                                <td><button onClick={() => deleteService(service.id)}>Smazat</button>
-                                <button onClick={() => editService(service.id)}>Změnit</button></td>
+                            <tr key={service.sluzbaid}>
+                                <td>{service.nazev}</td>
+                                <td><button onClick={() => deleteService(service.sluzbaid)}>Smazat</button>
+                                <button onClick={() => editService(service.sluzbaid)}>Změnit</button></td>
                             </tr>
                         ))}
                     </tbody>

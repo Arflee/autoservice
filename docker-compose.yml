@@ -1,9 +1,9 @@
 version: '3.9'
 
 services:
-  db:
+  autoservice-db:
     container_name: autoservice-db
-    image: postgres:latest
+    image: postgres:alpine
     ports:
       - 5432:5432
     expose:
@@ -13,9 +13,10 @@ services:
     volumes: 
     - ./db-data/1-generate-db.sql:/docker-entrypoint-initdb.d/1-generate-db.sql
     - ./db-data/2-fill-db.sql:/docker-entrypoint-initdb.d/2-fill-db.sql
-
     restart: always
-  
+    networks:
+      - auto-net
+
   frontend:
     container_name: autoservice-frontend
     image: autoservice-frontend
@@ -26,11 +27,13 @@ services:
       - 3000:3000
     restart: always
     depends_on:
-      - db
-
-networks:
-  db:
-    driver: bridge
+      - autoservice-db
+    networks:
+      - auto-net
 
 volumes:
-  db:
+  autoservice-db:
+
+networks:
+  auto-net:
+    driver: bridge

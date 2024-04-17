@@ -52,8 +52,13 @@ export default function Home() {
     return (
         <main className='text-center'>
             <h1 className='text-3xl text-center  mt-10 mb-10'>Tuhle stránku  má vidět pouze manažer</h1>
-                <button onClick={() => addService()} className="inline-block mb-5 px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200">Přidat službu</button>
-                <h1 className='text-xl text-center mb-10'>Služby:</h1>
+                <form className='flex flex-col w-96 mx-auto p-4 text-black border-2 mb-5'>
+                    <input type="text" placeholder="Název služby" className="input input-bordered mb-4" />
+                    <label className='text-white'>Obrázek služby:</label>
+                    <input type="file" className="mb-4 text-white"></input>
+                    <button onClick={() => addService()} className="inline-block mb-5 px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200">Přidat službu</button>
+                </form>
+                <h1 className='text-xl text-center mb-5'>Nabízené služby:</h1>
                 <table className='mx-auto'>
                     <thead>
                         <tr>

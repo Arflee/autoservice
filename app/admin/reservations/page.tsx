@@ -8,6 +8,9 @@ const isManager = () => {
     return true;
 };
 
+const addReservation = ()=>{
+    //TODO: replace with actual function adding new reservation to the database
+}
 
 const formatDateTime = (dateTime: Date) => {
     return dateTime.toLocaleString('cs-CZ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric' });
@@ -132,8 +135,9 @@ const ManagerPage = () => {
         console.log(`Assigning reservation with ID ${reservationID} to mechanic with ID ${mechanicID}`);
     };
     return (
-        <div>
+        <div className='text-center'>
             <h1 className='text-3xl text-center  mb-10'>Manažerova stránka:</h1>
+            <button onClick={() => addReservation()} className="inline-block mb-5 px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200">Přidat rezervaci</button>
             <h1 className='text-xl text-center mb-10'>Rezervace bez přiděleného mechanika</h1>
             <table className='mx-auto'>
                 <thead>
@@ -160,7 +164,7 @@ const ManagerPage = () => {
                             <td>{reservation.serviceType}</td>
                             <td>
                                 <button onClick={() => deleteReservation(reservation.id)}>Smazat</button>
-                                <button onClick={() => editReservation(reservation.id)}>Změna</button>
+                                <button onClick={() => editReservation(reservation.id)}>Změnit</button>
                                 <button onClick={() => assignReservation(reservation.id, 1)}>Přidělit</button>
                             </td>
                         </tr>

@@ -1,6 +1,9 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { redirect } from "next/navigation";
+import LogOutButton from "@/components/logOutButton";
+import Link from 'next/link';
 
 const placeholderServices = [
     {
@@ -16,6 +19,11 @@ const placeholderServices = [
         name: 'Diagnostika'
     },
 ];
+
+const isManager = () => {
+    //TODO: replace with actual function checking if the logged in user is mechanic or manager
+    return true;
+};
 
 const fetchServices = async () => {
     //TODO: replace with actual fetching services from db 
@@ -39,6 +47,11 @@ const editService = (id: number) => {
 };
 
 export default function Home() {
+
+    if (!isManager) {
+        redirect("admin");
+    }
+
     const [services, setServices] = useState<any[]>([]);
 
     useEffect(() => {
@@ -51,6 +64,13 @@ export default function Home() {
 
     return (
         <main className='text-center'>
+            <div className="flex justify-between px-[20%] text-xl pt-5 pb-2 bg-stone-300">
+                <div>
+                    <Link href="/admin" className="text-black">Rezervace</Link>
+                    <Link href="/admin/services" className="bg-stone-500 p-2 mx-4">Služby</Link>
+                </div>
+                <LogOutButton />
+            </div>
             <h1 className='text-3xl text-center  mt-10 mb-10'>Tuhle stránku  má vidět pouze manažer</h1>
                 <form className='flex flex-col w-96 mx-auto p-4 text-black border-2 mb-5'>
                     <input type="text" placeholder="Název služby" className="input input-bordered mb-4" />

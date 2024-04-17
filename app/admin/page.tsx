@@ -113,7 +113,7 @@ function MechanicPage() {
 
 
     return (
-        <main className='text-center'>
+        <div className='text-center'>
             <div className="text-xl p-2 bg-stone-300 mb-10">
                 <LogOutButton />
             </div>
@@ -145,7 +145,7 @@ function MechanicPage() {
                     ))}
                 </tbody>
             </table>
-        </main>
+        </div>
     );
 }
 

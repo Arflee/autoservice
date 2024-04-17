@@ -8,10 +8,10 @@ import logo from "../public/logo.png";
 import { useSession } from "next-auth/react";
 
 const links = [
-  { path: "/", name: "Home" },
-  { path: "/services", name: "Services" },
-  { path: "/reservation", name: "Reservation" },
-  { path: "/contacts", name: "Contacts" },
+  { path: "/", name: "Domů" },
+  { path: "/services", name: "Služby" },
+  { path: "/reservation", name: "Rezervace" },
+  { path: "/contacts", name: "Kontakty" },
 ];
 
 export default function Navbar() {

@@ -55,8 +55,8 @@ export default function Home() {
       <h2 className="text-3xl font-bold mb-4 text-center">S čím vám můžeme pomoci?</h2>
       <div className="grid grid-cols-7 mx-10">
         {frequentServices.map((el) => (
-          <div className="col-span-2">
-          <ServiceCard key={el.name} service={el}/>
+          <div className="col-span-2"  key={el.name}>
+          <ServiceCard service={el}/>
           </div>
         ))}
         <div className="my-auto">

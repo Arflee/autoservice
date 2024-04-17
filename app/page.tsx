@@ -6,19 +6,19 @@ import { signIn, signOut } from "next-auth/react";
 
 const frequentServices: Service[] = [
   {
-    name: "asdas",
+    name: 'Výměna oleje',
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
   },
   {
-    name: "asdsd",
+    name: 'Přezutí pneumatik',
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
   },
   {
-    name: "sdasd",
+    name: 'Diagnostika',
     description: "qweqweqwe",
     short_button_text: "buy",
     image_url: "/mech.webp",
@@ -53,10 +53,17 @@ export default function Home() {
       </div>
 
       <h2 className="text-3xl font-bold mb-4 text-center">S čím vám můžeme pomoci?</h2>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-7 mx-10">
         {frequentServices.map((el) => (
-          <ServiceCard key={el.name} service={el} />
+          <div className="col-span-2">
+          <ServiceCard key={el.name} service={el}/>
+          </div>
         ))}
+        <div className="my-auto">
+        <Link href="/services" className="inline-block text-xl px-6 py-10 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200 mx-5">
+          Další služby..
+        </Link>
+        </div>
       </div>
 
       <div className="max-w-4xl mx-auto m-8">

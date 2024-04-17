@@ -13,15 +13,11 @@ export default function ServiceCard({service}: {service: Service}) {
           priority={true}
         />
       </figure>
-      <div className="card-body overflow-hidden min-h-0">
+      <div className="card-body overflow-hidden min-h-0 text-black">
         <h2 className="card-title">{service.name}</h2>
         <p className="text-pretty">
           {service.description}
         </p>
-
-        <div className="card-actions justify-end">
-          <button className="btn btn-primary">{service.short_button_text}</button>
-        </div>
       </div>
     </div>
   );

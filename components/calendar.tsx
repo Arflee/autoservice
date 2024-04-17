@@ -5,7 +5,9 @@ import 'react-calendar/dist/Calendar.css';
 import './calendar.css';
 
 
-
+const formatDateTime = (dateTime: Date) => {
+  return dateTime.toLocaleString('cs-CZ', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric'});
+};
 
 function fetchAvailableTimeSlots(date: Date) {
   // TODO: function should fetch from the database, this is just a simulation
@@ -42,29 +44,40 @@ export default function MyCalendar() {
   }
 
   return (
-    <div className='grid grid-cols-2 mx-[20%]'>
-      <Calendar
-        tileClassName={tileClassName}
-        onClickDay={daySelect}
-        selectRange={false} // Prevent selecting ranges
-      />
-      <div>
-        {selectedDate && (
-          <div>
-            <h2 className="text-xl font-semibold mb-2">Available Time Slots for {selectedDate.toDateString()}</h2>
-            <ul>
-              {timeSlots.map((timeSlot, index) => (
-                <li key={index} className="cursor-pointer" onClick={() => setSelectedTimeSlot(timeSlot)}>
-                  {timeSlot}:00 - {timeSlot + 1}:00
-                </li>
-              ))}
-            </ul>
-          </div>
-        )}
-        <br />
-        <p>Vybraný termín: {selectedTimeSlot != null ? `${selectedTimeSlot}:00 - ${selectedTimeSlot + 1}:00` : 'None'}</p>
+    <div>
+
+      <div className='grid grid-cols-2 mx-[20%]'>
+        <div>
+          <h2 className='text-xl font-semibold mb-5'>Datum:</h2>
+        <Calendar
+          tileClassName={tileClassName}
+          onClickDay={daySelect}
+          selectRange={false} // Prevent selecting ranges
+        />
+        </div>
+        
+        <div>
+        <h2 className='text-xl font-semibold mb-5'>Čas:</h2>
+
+          {selectedDate && (
+            <div>
+              <h3 className="text-l font-semibold mb-2">Dostupné termíny v {formatDateTime(selectedDate)}</h3>
+              <ul>
+                {timeSlots.map((timeSlot, index) => (
+                  <li key={index} onClick={() => setSelectedTimeSlot(timeSlot)}  className="inline-block cursor-pointer border-2 m-2 px-2" >
+                    {timeSlot}:00 - {timeSlot + 1}:00
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+          <br />
+        </div>
       </div>
+      <h3 className='text-center mt-10 mb-3 text-xl'>Vybraný termín: </h3>
+      <p className='text-center  mb-10 text-xl'>{selectedDate != null ? `${formatDateTime(selectedDate)}` : ''} {selectedTimeSlot != null ? `${selectedTimeSlot}:00 - ${selectedTimeSlot + 1}:00` : ''}</p>
 
     </div>
+
   );
 }

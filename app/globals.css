@@ -6,6 +6,7 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 7, 89, 133;
   --background-end-rgb: 8, 47, 73;
+  color:white;
 }
 
 body {

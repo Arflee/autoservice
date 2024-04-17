@@ -13,7 +13,7 @@ services:
     volumes: 
     - ./db-data/1-generate-db.sql:/docker-entrypoint-initdb.d/1-generate-db.sql
     - ./db-data/2-fill-db.sql:/docker-entrypoint-initdb.d/2-fill-db.sql
-    restart: always
+    restart: unless-stopped
     networks:
       - auto-net
 
@@ -25,7 +25,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - 3000:3000
-    restart: always
+    restart: unless-stopped
     depends_on:
       - autoservice-db
     networks:

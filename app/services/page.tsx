@@ -12,16 +12,19 @@ const testService: Service = {
 export default function Page() {
   //todo make cards grid with all available services
   return (
-    <main className="grid grid-cols-4">
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
-      <ServiceCard service={testService} />
+    <main>
+      <h1 className="text-3xl font-bold m-20 text-center">Naše služby</h1>
+      <div className="grid grid-cols-4">
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+        <ServiceCard service={testService} />
+      </div>
     </main>
   );
 }

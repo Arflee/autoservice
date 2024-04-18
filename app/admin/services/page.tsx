@@ -3,7 +3,6 @@ export const dynamic = 'force-dynamic'
 import { redirect } from "next/navigation";
 import LogOutButton from "@/components/logOutButton";
 import Link from "next/link";
-import { prisma } from "@/app/lib/data-mapper";
 import { fetchServices } from "@/app/lib/data";
 import { osoba, sluzba } from "@prisma/client";
 
@@ -41,7 +40,7 @@ const editService = (id: number) => {
   console.log(`Editing service with ID ${id}`);
 };
 export default async function Home() {
-  const fetchedServices = await fetchServices() as osoba[];
+  const fetchedServices = await fetchServices() as sluzba[];
   if (!isManager) {
     redirect("admin");
   }
@@ -89,8 +88,8 @@ export default async function Home() {
         </thead>
         <tbody>
           {fetchedServices.map((service) => (
-            <tr key={service.osobaid}>
-              <td>{service.jmeno}</td>
+            <tr key={service.sluzbaid}>
+              <td>{service.nazev}</td>
               <td>
                 {//<button onClick={() => deleteService(service.sluzbaid)}>
 }

@@ -29,48 +29,6 @@ insert into Mechanik (BankovniUcet, Plat, Specializace) values ('3628047234', 25
 insert into Mechanik (BankovniUcet, Plat, Specializace) values ('5489966807', 23357, 'Transmission Expert');
 insert into Mechanik (BankovniUcet, Plat, Specializace) values ('8946908424', 28543, 'AC Technician');
 
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-insert into Zakaznik values (DEFAULT);
-
-insert into Role (OsobaID) values (1);
-insert into Role (OsobaID) values (2);
-insert into Role (OsobaID) values (3);
-insert into Role (OsobaID) values (4);
-insert into Role (OsobaID) values (5);
-insert into Role (OsobaID) values (6);
-insert into Role (OsobaID) values (7);
-insert into Role (OsobaID) values (8);
-insert into Role (OsobaID) values (9);
-insert into Role (OsobaID) values (10);
-insert into Role (OsobaID) values (11);
-insert into Role (OsobaID) values (12);
-insert into Role (OsobaID) values (13);
-insert into Role (OsobaID) values (14);
-insert into Role (OsobaID) values (15);
-insert into Role (OsobaID) values (16);
-insert into Role (OsobaID) values (17);
-insert into Role (OsobaID) values (18);
-insert into Role (OsobaID) values (19);
-insert into Role (OsobaID) values (20);
-
 insert into Sluzba (Nazev, OdhadovanaDobaProvedeni, PribliznaCena, RezervaceID) values ('Air Filter Replacement', '3 hours 30 min', 2100, 1);
 insert into Sluzba (Nazev, OdhadovanaDobaProvedeni, PribliznaCena, RezervaceID) values ('Battery Replacement', '1 hour', 3751, 2);
 insert into Sluzba (Nazev, OdhadovanaDobaProvedeni, PribliznaCena, RezervaceID) values ('Oil Change', '1 hour 30 min', 2278, 3);

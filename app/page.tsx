@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { signIn, signOut } from "next-auth/react";
 
-const frequentServices: Service[] = [
+const frequentServices: Service[] = [ //Should fetch from db (Service[] services = ServiceDAO.getThree())
   {
     name: 'Výměna oleje',
     description: "qweqweqwe",

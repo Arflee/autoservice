@@ -6,7 +6,6 @@ const testService: Service = {
   description:
     "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae ligula tempor, suscipit lacus et, laoreet du",
   short_button_text: "Buy",
-  image_url: "/512x256.jpg",
 };
 
 export default function Page() {

@@ -9,19 +9,16 @@ const frequentServices: Service[] = [
     name: 'Výměna oleje',
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/mech.webp",
   },
   {
     name: 'Přezutí pneumatik',
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/mech.webp",
   },
   {
     name: 'Diagnostika',
     description: "qweqweqwe",
     short_button_text: "buy",
-    image_url: "/mech.webp",
   }
 ];
 
@@ -60,7 +57,7 @@ export default function Home() {
           </div>
         ))}
         <div className="my-auto">
-        <Link href="/services" className="inline-block text-xl px-6 py-10 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200 mx-5">
+        <Link href="/services" className="inline-block text-xl px-6 py-8 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200 mx-5">
           Další služby..
         </Link>
         </div>

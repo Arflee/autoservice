@@ -1,9 +1,10 @@
 export const dynamic = 'force-dynamic'
 
-import { prisma } from "@/app/lib/data-mapper"
+import { ServiceDAOPrisma } from "@/app/lib/serviceDAOPrisma"
 import { NextResponse } from "next/server"
 
 export async function GET() {
-    const services = await prisma.sluzba.findMany()
+    const serviceDAO = new ServiceDAOPrisma()
+    const services = serviceDAO.GetAllServices()
     return NextResponse.json(services)
 }

@@ -1,8 +1,8 @@
 import { NextAuthOptions } from "next-auth";
 import Credentials from "next-auth/providers/credentials";
-import { prisma } from "./app/lib/data-mapper";
 import { User } from "./app/lib/definitions";
 import bcrypt from "bcrypt";
+import { prisma } from "./app/lib/data";
 
 export const authOptions: NextAuthOptions = {
   secret: "iekAgfR0yy/M38RodqQCmWmS+9cw836S2QPuqGPsDj4=",

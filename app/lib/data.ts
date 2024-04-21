@@ -1,5 +1,9 @@
 import { rezervace } from "@prisma/client";
 import { Reservation } from "./definitions";
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
+export { prisma };
 
 export const formatDateTime = (dateTime: Date) => {
   return dateTime.toLocaleString("cs-CZ", {
@@ -11,8 +15,6 @@ export const formatDateTime = (dateTime: Date) => {
     minute: "numeric",
   });
 };
-
-
 
 export async function fetchServices() {
   try {

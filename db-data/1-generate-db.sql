@@ -37,8 +37,8 @@ CREATE TABLE rezervace (
     id_osoba INTEGER NOT NULL,
     id_mechanik INTEGER,
     mechanik_id_osoba INTEGER,
-    datum DATE NOT NULL,
-    cas TIME NOT NULL
+    datum VARCHAR(256) NOT NULL,
+    cas VARCHAR(256) NOT NULL
 );
 ALTER TABLE rezervace ADD CONSTRAINT pk_rezervace PRIMARY KEY (id_rezervace, id_sluzba, id_vozidlo, id_osoba);
 ALTER TABLE rezervace ADD CONSTRAINT c_fk_rezervace_mechanik CHECK ((id_mechanik IS NOT NULL AND mechanik_id_osoba IS NOT NULL) OR (id_mechanik IS NULL AND mechanik_id_osoba IS NULL));

@@ -5,6 +5,6 @@ import { NextResponse } from "next/server"
 
 export async function GET() {
     const serviceDAO = new ServiceDAOPrisma()
-    const services = serviceDAO.GetAllServices()
+    const services = await serviceDAO.GetAllServices()
     return NextResponse.json(services)
 }

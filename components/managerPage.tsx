@@ -2,9 +2,8 @@
 
 import Link from "next/link";
 import LogOutButton from "./logOutButton";
-import { rezervace, sluzba } from "@prisma/client";
+import { sluzba } from "@prisma/client";
 import { formatDateTime } from "@/app/lib/data";
-import { Reservation } from "@/app/lib/definitions";
 
 const addReservation = () => {
   //TODO: replace with actual function adding new reservation to the database

@@ -20,7 +20,7 @@ export default async function Home() {
 
     const services = await fetchServices() as sluzba[]
     const reservations = await fetchReseravationList()
-    console.log(reservations)
+    console.log(services)
     return (
         <main>
             {user.isManager ? <ManagerPage services={services} reservations={reservations} /> : <MechanicPage />}

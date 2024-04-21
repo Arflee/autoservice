@@ -4,7 +4,7 @@ import { ReservationDAO } from "./reservationDAO";
 import { prisma } from "./data";
 
 export class ReservationDAOPrisma implements ReservationDAO {
-    async PostReservation(data: Reservation): Promise<void> {
+    public async PostReservation(data: Reservation): Promise<void> {
         
         let person;
         person = await prisma.osoba.findFirst({

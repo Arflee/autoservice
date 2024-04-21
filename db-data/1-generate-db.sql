@@ -9,8 +9,7 @@ DROP TABLE IF EXISTS vozidlo CASCADE;
 CREATE TABLE administrator (
     id_admin INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
     id_osoba INTEGER NOT NULL,
-    heslo_hash VARCHAR(256) NOT NULL,
-);
+    heslo_hash VARCHAR(256) NOT NULL);
 ALTER TABLE administrator ADD CONSTRAINT pk_administrator PRIMARY KEY (id_admin, id_osoba);
 ALTER TABLE administrator ADD CONSTRAINT u_fk_administrator_osoba UNIQUE (id_osoba);
 

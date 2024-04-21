@@ -1,4 +1,4 @@
-export const dynamic = 'force-dynamic' // defaults to auto
+export const dynamic = 'force-dynamic'
 
 import { prisma } from "@/app/lib/data-mapper"
 import { NextResponse } from "next/server"

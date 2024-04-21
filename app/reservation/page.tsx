@@ -1,13 +1,18 @@
-import MyCalendar from "@/components/calendar";
-import ReservationForm from "@/components/reservationForm";
+export const dynamic = 'force-dynamic'
 
-export default function Page() {
+import ReservationForm from "@/components/reservationForm";
+import { fetchAvailableTimeSlots, fetchReservations } from "../lib/data";
+import CustomCalendar from "@/components/calendar";
+import { rezervace } from "@prisma/client";
+
+export default async function Page() {
+  //todo pass all reservations
+  const allReservations = await fetchReservations() as rezervace[];
+
   return (
     <main>
       <h1 className="text-3xl font-bold m-20 text-center">Rezervace termínu</h1>
-      <MyCalendar />
-      <h2 className="text-2xl font-bold mt-10 mb-5 text-center">Vaše údaje</h2>
-      <ReservationForm/>
+      <CustomCalendar allReservations={allReservations}/>
     </main>
   );
 }

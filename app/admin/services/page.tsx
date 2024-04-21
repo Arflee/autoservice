@@ -1,24 +1,10 @@
 export const dynamic = 'force-dynamic'
 
-import { redirect } from "next/navigation";
 import LogOutButton from "@/components/logOutButton";
 import Link from "next/link";
-import { fetchServices } from "@/app/lib/data";
-import { osoba, sluzba } from "@prisma/client";
 import AddServiceForm from "@/components/addServiceForm";
 
-
-const isManager = () => {
-  //TODO: replace with actual function checking if the logged in user is mechanic or manager
-  return true;
-};
-
 export default async function Home() {
-  const fetchedServices = await fetchServices() as sluzba[];
-  if (!isManager) {
-    redirect("admin");
-  }
-
   return (
     <main className="text-center">
       <div className="flex justify-between px-[20%] text-xl pt-5 pb-2 bg-stone-300">
@@ -35,7 +21,7 @@ export default async function Home() {
       <h1 className="text-3xl text-center  mt-10 mb-10">
         Tuhle stránku má vidět pouze manažer
       </h1>
-      <AddServiceForm services={fetchedServices}/>
+      <AddServiceForm/>
       <h1 className="text-xl text-center mb-5">Nabízené služby:</h1>
       
     </main>

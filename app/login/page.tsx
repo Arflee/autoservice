@@ -1,11 +1,10 @@
 "use client";
 
 import { signIn } from "next-auth/react";
-import { redirect, usePathname, useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
 export default function Page() {
-  const path = usePathname();
   const router = useRouter();
   const userName = useRef("");
   const pass = useRef("");
@@ -33,14 +32,14 @@ export default function Page() {
           name="username"
           type="text"
           placeholder="Username"
-          className="input input-bordered mb-2"
+          className="input input-bordered mb-2 text-black"
           onChange={(e) => (userName.current = e.target.value)}
         />
         <input
           name="password"
           type="password"
           placeholder="Password"
-          className="input input-bordered mb-4"
+          className="input input-bordered mb-4 text-black"
           onChange={(e) => (pass.current = e.target.value)}
         />
         <button

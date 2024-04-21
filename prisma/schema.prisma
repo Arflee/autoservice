@@ -8,74 +8,66 @@ datasource db {
 }
 
 model administrator {
-  bankovniucet    String @db.VarChar(50)
-  plat            Float
-  heslo           String @db.VarChar(50)
-  email           String @db.VarChar(50)
-  administratorid Int    @id(map: "pk_administrator") @default(autoincrement())
-  role            role   @relation(fields: [administratorid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_administrator_role")
+  id_admin   Int    @default(autoincrement())
+  id_osoba   Int    @unique(map: "u_fk_administrator_osoba")
+  heslo_hash String @db.VarChar(256)
+  osoba      osoba  @relation(fields: [id_osoba], references: [id_osoba], onDelete: Cascade, onUpdate: NoAction, map: "fk_administrator_osoba")
+
+  @@id([id_admin, id_osoba], map: "pk_administrator")
 }
 
 /// This table contains check constraints and requires additional setup for migrations. Visit https://pris.ly/d/check-constraints for more info.
 model mechanik {
-  bankovniucet String      @db.VarChar(50)
-  plat         Float
-  specializace String      @db.VarChar(50)
-  mechanikid   Int         @id(map: "pk_mechanik") @default(autoincrement())
-  role         role        @relation(fields: [mechanikid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_mechanik_role")
-  rezervace    rezervace[]
+  id_mechanik Int         @default(autoincrement())
+  id_osoba    Int         @unique(map: "u_fk_mechanik_osoba")
+  heslo_hash  String      @db.VarChar(256)
+  osoba       osoba       @relation(fields: [id_osoba], references: [id_osoba], onDelete: Cascade, onUpdate: NoAction, map: "fk_mechanik_osoba")
+  rezervace   rezervace[]
+
+  @@id([id_mechanik, id_osoba], map: "pk_mechanik")
 }
 
 model osoba {
-  email    String @db.VarChar(50)
-  jmeno    String @db.VarChar(50)
-  prijmeni String @db.VarChar(50)
-  telcislo String @db.VarChar(50)
-  osobaid  Int    @id(map: "pk_osoba") @default(autoincrement())
-  role     role[]
+  id_osoba      Int            @id(map: "pk_osoba") @default(autoincrement())
+  tel           String         @db.VarChar(256)
+  jmeno         String         @db.VarChar(256)
+  prijmeni      String         @db.VarChar(256)
+  email         String         @db.VarChar(256)
+  administrator administrator?
+  mechanik      mechanik?
+  vozidlo       vozidlo[]
 }
 
 model rezervace {
-  cas         DateTime  @db.Time(0)
-  cena        Float
-  datum       DateTime  @db.Date
-  rezervaceid Int       @id(map: "pk_rezervace") @default(autoincrement())
-  mechanikid  Int?
-  vozidloid   Int
-  mechanik    mechanik? @relation(fields: [mechanikid], references: [mechanikid], onDelete: NoAction, onUpdate: NoAction, map: "fk_rezervace_pridelena")
-  vozidlo     vozidlo   @relation(fields: [vozidloid], references: [vozidloid], onDelete: NoAction, onUpdate: NoAction, map: "fk_rezervace_soucasti")
-  sluzba      sluzba[]
-}
+  id_rezervace      Int       @default(autoincrement())
+  id_sluzba         Int
+  id_vozidlo        Int
+  id_osoba          Int
+  id_mechanik       Int?
+  mechanik_id_osoba Int?
+  datum             String    @db.VarChar(256)
+  cas               String    @db.VarChar(256)
+  mechanik          mechanik? @relation(fields: [id_mechanik, mechanik_id_osoba], references: [id_mechanik, id_osoba], onDelete: Cascade, onUpdate: NoAction, map: "fk_rezervace_mechanik")
+  sluzba            sluzba    @relation(fields: [id_sluzba], references: [id_sluzba], onDelete: Cascade, onUpdate: NoAction, map: "fk_rezervace_sluzba")
+  vozidlo           vozidlo   @relation(fields: [id_vozidlo, id_osoba], references: [id_vozidlo, id_osoba], onDelete: Cascade, onUpdate: NoAction, map: "fk_rezervace_vozidlo")
 
-model role {
-  roleid        Int            @id(map: "pk_role") @default(autoincrement())
-  osobaid       Int
-  administrator administrator?
-  mechanik      mechanik?
-  osoba         osoba          @relation(fields: [osobaid], references: [osobaid], onDelete: NoAction, onUpdate: NoAction, map: "fk_role_osoba")
-  zakaznik      zakaznik?
+  @@id([id_rezervace, id_sluzba, id_vozidlo, id_osoba], map: "pk_rezervace")
 }
 
 model sluzba {
-  nazev                   String    @db.VarChar(50)
-  odhadovanadobaprovedeni String?   @db.VarChar(50)
-  pribliznacena           Float?
-  sluzbaid                Int       @id(map: "pk_sluzba") @default(autoincrement())
-  rezervaceid             Int
-  rezervace               rezervace @relation(fields: [rezervaceid], references: [rezervaceid], onDelete: NoAction, onUpdate: NoAction, map: "fk_sluzba_bude")
+  id_sluzba Int         @id(map: "pk_sluzba") @default(autoincrement())
+  nazev     String      @db.VarChar(256)
+  cena      String      @db.VarChar(256)
+  rezervace rezervace[]
 }
 
 model vozidlo {
-  model      String      @db.VarChar(100)
-  spz        String      @db.VarChar(8)
-  vozidloid  Int         @id(map: "pk_vozidlo") @default(autoincrement())
-  zakaznikid Int
+  id_vozidlo Int         @default(autoincrement())
+  id_osoba   Int
+  model      String      @db.VarChar(256)
+  reg_znacka String      @db.VarChar(256)
   rezervace  rezervace[]
-  zakaznik   zakaznik    @relation(fields: [zakaznikid], references: [zakaznikid], onDelete: NoAction, onUpdate: NoAction, map: "fk_vozidlo_je")
-}
+  osoba      osoba       @relation(fields: [id_osoba], references: [id_osoba], onDelete: Cascade, onUpdate: NoAction, map: "fk_vozidlo_osoba")
 
-model zakaznik {
-  zakaznikid Int       @id(map: "pk_zakaznik") @default(autoincrement())
-  vozidlo    vozidlo[]
-  role       role      @relation(fields: [zakaznikid], references: [roleid], onDelete: NoAction, onUpdate: NoAction, map: "fk_zakaznik_role")
+  @@id([id_vozidlo, id_osoba], map: "pk_vozidlo")
 }

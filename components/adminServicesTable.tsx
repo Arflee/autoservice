@@ -23,13 +23,13 @@ export default function adminServicesTable({ services }: { services: sluzba[] })
         </thead>
         <tbody>
             {services.map((service) => (
-                <tr key={service.sluzbaid}>
+                <tr key={service.id_sluzba}>
                     <td>{service.nazev}</td>
                     <td>
-                        <button onClick={() => deleteService(service.sluzbaid)}>
+                        <button onClick={() => deleteService(service.id_sluzba)}>
                             Smazat
                         </button>
-                        <button onClick={() => editService(service.sluzbaid)}>
+                        <button onClick={() => editService(service.id_sluzba)}>
                             Změnit
                         </button>
 

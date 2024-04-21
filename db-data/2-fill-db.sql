@@ -1,7 +1,7 @@
-insert into osoba (tel, jmeno, prijmeni, email) values ('745-763-0930', 'Ulric', 'Crosfield', 'ucrosfield0@google.pl');
+insert into osoba (tel, jmeno, prijmeni, email) values ('745-763-0930', 'Ulric', 'Crosfield', 'test@test');
 insert into osoba (tel, jmeno, prijmeni, email) values ('650-444-9848', 'Kelbee', 'Delves', 'kdelves1@technorati.com');
 insert into osoba (tel, jmeno, prijmeni, email) values ('914-477-1185', 'Jo', 'Barsam', 'jbarsam2@dropbox.com');
-insert into osoba (tel, jmeno, prijmeni, email) values ('189-373-9718', 'Lorrie', 'Muehle', 'lmuehle3@trellian.com');
+insert into osoba (tel, jmeno, prijmeni, email) values ('189-373-9718', 'Lorrie', 'Muehle', 'test2@test2');
 insert into osoba (tel, jmeno, prijmeni, email) values ('353-189-8534', 'Andie', 'Ogers', 'aogers4@tamu.edu');
 insert into osoba (tel, jmeno, prijmeni, email) values ('577-810-5876', 'Tabbie', 'Fitzsimon', 'tfitzsimon5@networksolutions.com');
 insert into osoba (tel, jmeno, prijmeni, email) values ('791-500-0058', 'Giuditta', 'Maior', 'gmaior6@microsoft.com');
@@ -29,11 +29,11 @@ insert into osoba (tel, jmeno, prijmeni, email) values ('164-450-3899', 'Shaylah
 insert into osoba (tel, jmeno, prijmeni, email) values ('400-676-7963', 'Liana', 'Siuda', 'lsiudas@xing.com');
 insert into osoba (tel, jmeno, prijmeni, email) values ('415-723-0722', 'Kevina', 'Caston', 'kcastont@shareasale.com');
 
-insert into mechanik (id_osoba, heslo_hash) values (1, 'Cw6hlc420a');
+insert into mechanik (id_osoba, heslo_hash) values (1, '$2a$12$bMunnHeY2fj2sC8P3LSZSucQ6/QfwmeEklpqnM7B1yN6bLHZdi8M.');
 insert into mechanik (id_osoba, heslo_hash) values (2, 'NUN3RIQsvR');
 insert into mechanik (id_osoba, heslo_hash) values (3, '9AXsvKwvBq');
 
-insert into administrator (id_osoba, heslo_hash) values (4, '331fCOonR3');
+insert into administrator (id_osoba, heslo_hash) values (4, '$2a$12$uZzlrz1OwoKM.7ewlk9uUOgzb8dgynje27yjJaYxZ6uhk4z73Cqq6');
 insert into administrator (id_osoba, heslo_hash) values (5, 'wGj02adAtS');
 insert into administrator (id_osoba, heslo_hash) values (6, 'k9xXjObX7k');
 
@@ -78,27 +78,23 @@ insert into vozidlo (id_osoba, model, reg_znacka) values (28, 'Kia Optima', 'CR1
 insert into vozidlo (id_osoba, model, reg_znacka) values (29, 'Lexus RX', 'RV31-QKH-135');
 insert into vozidlo (id_osoba, model, reg_znacka) values (30, 'Bugatti Chiron', 'WM92-OJC-036');
 
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (14, 1, 7, 3, 1, '25/04/2024', '14:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (6, 2, 8, 2, 2, '27/04/2024', '13:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (2, 3, 9, 1, 3, '24/04/2024', '17:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (12, 4, 10, 1, 4, '21/04/2024', '11:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 5, 11, 3, 5, '23/04/2024', '09:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (14, 6, 12, 3, 6, '25/04/2024', '11:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (1, 7, 13, 1, 7, '24/04/2024', '09:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 8, 14, 2, 8, '29/04/2024', '17:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (8, 9, 15, 3, 9, '27/04/2024', '16:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (15, 10, 16, 1, 10, '25/04/2024', '10:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (7, 11, 17, 2, 11, '26/04/2024', '15:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (10, 12, 18, 1, 12, '20/04/2024', '09:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (12, 13, 19, 1, 13, '22/04/2024', '17:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (8, 14, 20, 1, 14, '19/04/2024', '18:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (6, 15, 21, 2, 15, '26/04/2024', '10:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (3, 16, 22, 3, 16, '21/04/2024', '09:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (10, 17, 23, 3, 17, '24/04/2024', '17:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (12, 18, 24, 2, 18, '22/04/2024', '11:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (8, 19, 25, 3, 19, '28/04/2024', '16:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (11, 20, 26, 2, 20, '22/04/2024', '13:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (2, 21, 27, 3, 21, '22/04/2024', '09:30');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (11, 22, 28, 3, 22, '20/04/2024', '17:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 23, 29, 2, 23, '20/04/2024', '12:00');
-insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 24, 30, 2, 24, '23/04/2024', '14:00');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (12, 1, 7, 3, 3, '2024-05-04', '15:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (15, 2, 8, 3, 3, '2024-04-25', '16:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (14, 3, 9, 1, 1, '2024-05-03', '10:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (12, 4, 10, 2, 2, '2024-05-06', '12:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (15, 5, 11, 2, 2, '2024-05-20', '10:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (15, 6, 12, 1, 1, '2024-05-21', '10:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (1, 7, 13, 1, 1, '2024-05-04', '14:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (7, 8, 14, 1, 1, '2024-04-19', '12:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (2, 9, 15, 2, 2, '2024-04-31', '15:00');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (14, 10, 16, 3, 3, '2024-04-17', '12:00');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (5, 11, 17, 2, 2, '2024-05-06', '15:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 12, 18, 3, 3, '2024-04-14', '16:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 13, 19, 2, 2, '2024-05-29', '12:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (1, 14, 20, 2, 2, '2024-04-03', '12:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (3, 15, 21, 2, 2, '2024-05-02', '09:00');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (8, 16, 22, 3, 3, '2024-04-05', '11:00');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (3, 17, 23, 3, 3, '2024-05-28', '13:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (4, 18, 24, 2, 2, '2024-04-28', '10:30');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (10, 19, 25, 3, 3, '2024-04-25', '12:00');
+insert into rezervace (id_sluzba, id_vozidlo, id_osoba, id_mechanik, mechanik_id_osoba, datum, cas) values (12, 20, 26, 2, 2, '2024-05-18', '09:00');

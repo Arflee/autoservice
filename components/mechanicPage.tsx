@@ -29,12 +29,11 @@ export default function MechanicPage(props: any) {
                 </thead>
                 <tbody>
                     {reservations.map((reservation) => (
-                        <tr key={reservation.rezervaceid}>
-                            <td>{formatDateTime(reservation.cas)}</td>
-                            <td>{reservation.vozidloid}</td>
-                            <td>{reservation.mechanikid}</td>
-                            <td>{reservation.cena}</td>
-                            <td>{reservation.datum.toDateString()}</td>
+                        <tr key={reservation.id_rezervace}>
+                            <td>{reservation.cas}</td>
+                            <td>{reservation.id_vozidlo}</td>
+                            <td>{reservation.id_mechanik}</td>
+                            <td>{reservation.datum}</td>
                             {//<td>{reservation.carModel}</td>
                             //<td>{reservation.serviceType}</td>
                             }

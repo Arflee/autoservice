@@ -1,7 +1,8 @@
 'use client';
+
 const addService = () => {
     //TODO: replace with actual add to the db (ServiceDAO.addService(Service('name', 'price')))
-  };
+};
 
 export default function AddServiceForm() {
     return (
@@ -11,15 +12,12 @@ export default function AddServiceForm() {
           placeholder="Název služby"
           className="input input-bordered mb-4"
         />
-        <label className="text-white">Obrázek služby:</label>
-        <input type="file" className="mb-4 text-white"></input>
         <button
           onClick={() => addService()}
           className="inline-block mb-5 px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200"
         >
           Přidat službu
         </button>
-
       </form>
     );
 }

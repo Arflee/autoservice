@@ -19,7 +19,7 @@
 stages:          # List of stages for jobs, and their order of execution
     - build
 #   - deploy
-#   - test
+    - test
 
 image: node
 
@@ -43,6 +43,11 @@ build-job:       # This job runs in the build stage, which runs first.
     - npm install
     - npm run build
     - echo "Compile complete."
+
+sast:
+  stage: test
+include:
+- template: Code-Quality.gitlab-ci.yml  # Code Climate template
 
 
 # deploy-job:      # This job runs in the deploy stage.

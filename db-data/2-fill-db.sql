@@ -37,21 +37,21 @@ insert into administrator (id_osoba, heslo_hash) values (4, '$2a$12$uZzlrz1OwoKM
 insert into administrator (id_osoba, heslo_hash) values (5, 'wGj02adAtS');
 insert into administrator (id_osoba, heslo_hash) values (6, 'k9xXjObX7k');
 
-insert into sluzba (nazev, cena) values ('Spark plug replacement', 2984);
-insert into sluzba (nazev, cena) values ('Suspension repair', 3868);
-insert into sluzba (nazev, cena) values ('Emission system service', 3136);
-insert into sluzba (nazev, cena) values ('Air conditioning service', 3908);
-insert into sluzba (nazev, cena) values ('Brake inspection', 3082);
-insert into sluzba (nazev, cena) values ('Transmission service', 3642);
-insert into sluzba (nazev, cena) values ('Power steering fluid flush', 2808);
-insert into sluzba (nazev, cena) values ('Brake pad replacement', 2147);
-insert into sluzba (nazev, cena) values ('Battery replacement', 3692);
-insert into sluzba (nazev, cena) values ('Tire rotation', 1804);
-insert into sluzba (nazev, cena) values ('Radiator flush', 3269);
-insert into sluzba (nazev, cena) values ('Cabin air filter replacement', 3106);
-insert into sluzba (nazev, cena) values ('Suspension repair', 2136);
-insert into sluzba (nazev, cena) values ('Tire rotation', 2933);
-insert into sluzba (nazev, cena) values ('Fuel filter replacement', 2317);
+insert into sluzba (nazev, cena, popis) values ('Spark plug replacement', 2984, 'Lorem ');
+insert into sluzba (nazev, cena, popis) values ('Suspension repair', 3868, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Emission system service', 3136, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Air conditioning service', 3908, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Brake inspection', 3082, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Transmission service', 3642, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Power steering fluid flush', 2808, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Brake pad replacement', 2147, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Battery replacement', 3692, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Tire rotation', 1804, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Radiator flush', 3269, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Cabin air filter replacement', 3106, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Suspension repair', 2136, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Tire rotation', 2933, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
+insert into sluzba (nazev, cena, popis) values ('Fuel filter replacement', 2317, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer sollicitudin, neque non elementum commodo, nibh.');
 
 insert into vozidlo (id_osoba, model, reg_znacka) values (7, 'Mazda CX-5', 'WW79-KXA-434');
 insert into vozidlo (id_osoba, model, reg_znacka) values (8, 'Acura NSX', 'GX13-UUO-798');

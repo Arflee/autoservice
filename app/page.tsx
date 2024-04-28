@@ -1,27 +1,14 @@
+export const dynamic = 'force-dynamic'
+
 import ServiceCard from "@/components/serviceCard";
-import { Service } from "./lib/definitions";
 import Image from "next/image";
 import Link from "next/link";
+import { fetchServices } from "./lib/data";
+import { sluzba } from "@prisma/client";
 
-const frequentServices: Service[] = [ //Should fetch from db (Service[] services = ServiceDAO.getThree())
-  {
-    name: 'Výměna oleje',
-    description: "qweqweqwe",
-    short_button_text: "buy",
-  },
-  {
-    name: 'Přezutí pneumatik',
-    description: "qweqweqwe",
-    short_button_text: "buy",
-  },
-  {
-    name: 'Diagnostika',
-    description: "qweqweqwe",
-    short_button_text: "buy",
-  }
-];
-
-export default function Home() {
+export default async function Home() {
+  const services = await fetchServices() as sluzba[];
+  const firstThreeServices = services.slice(0, 3);
   return (
     <main>
       <div className="relative mb-10">
@@ -50,8 +37,8 @@ export default function Home() {
 
       <h2 className="text-3xl font-bold mb-4 text-center">S čím vám můžeme pomoci?</h2>
       <div className="grid grid-cols-7 mx-10">
-        {frequentServices.map((el) => (
-          <div className="col-span-2"  key={el.name}>
+        {firstThreeServices.map((el) => (
+          <div className="col-span-2"  key={el.id_sluzba}>
           <ServiceCard service={el}/>
           </div>
         ))}

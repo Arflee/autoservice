@@ -2,6 +2,8 @@ import { rezervace } from "@prisma/client";
 import { Reservation } from "./definitions";
 import { PrismaClient } from "@prisma/client";
 
+const address = process.env.NODE_ENV == "production" ? "0.0.0.0" : "localhost";
+
 const prisma = new PrismaClient();
 export { prisma };
 
@@ -18,7 +20,7 @@ export const formatDateTime = (dateTime: Date) => {
 
 export async function fetchServices() {
   try {
-    const data = await fetch("http://0.0.0.0:3000/api/services");
+    const data = await fetch(`http://${address}:3000/api/services`);
     return await data.json();
   } catch (error) {
     console.error("Database Error:", error);
@@ -28,7 +30,7 @@ export async function fetchServices() {
 
 export async function fetchReservations() {
   try {
-    const data = await fetch("http://0.0.0.0:3000/api/reservations");
+    const data = await fetch(`http://${address}:3000/api/reservations`);
     return await data.json();
   } catch (error) {
     console.error("Database Error:", error);
@@ -38,7 +40,7 @@ export async function fetchReservations() {
 
 export async function fetchReseravationList() {
   try {
-    const data = await fetch("http://0.0.0.0:3000/api/reservations?list=true");
+    const data = await fetch(`http://${address}:3000/api/reservations?list=true`);
     return await data.json();
   } catch (error) {
     console.error("Database Error:", error);
@@ -48,7 +50,7 @@ export async function fetchReseravationList() {
 
 export async function postReservation(reservation: Reservation) {
   try {
-    return await fetch("http://localhost:3000/api/reservations", {
+    return await fetch(`http://${address}:3000/api/reservations`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

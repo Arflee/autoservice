@@ -29,10 +29,10 @@ model mechanik {
 
 model osoba {
   id_osoba      Int            @id(map: "pk_osoba") @default(autoincrement())
-  tel           String         @db.VarChar(256)
-  jmeno         String         @db.VarChar(256)
-  prijmeni      String         @db.VarChar(256)
-  email         String         @db.VarChar(256)
+  tel           String         @db.VarChar(15)
+  jmeno         String         @db.VarChar(40)
+  prijmeni      String         @db.VarChar(40)
+  email         String         @db.VarChar(100)
   administrator administrator?
   mechanik      mechanik?
   vozidlo       vozidlo[]
@@ -56,16 +56,17 @@ model rezervace {
 
 model sluzba {
   id_sluzba Int         @id(map: "pk_sluzba") @default(autoincrement())
-  nazev     String      @db.VarChar(256)
-  cena      String      @db.VarChar(256)
+  nazev     String      @db.VarChar(100)
+  cena      Int
+  popis     String      @db.VarChar(255)
   rezervace rezervace[]
 }
 
 model vozidlo {
   id_vozidlo Int         @default(autoincrement())
   id_osoba   Int
-  model      String      @db.VarChar(256)
-  reg_znacka String      @db.VarChar(256)
+  model      String      @db.VarChar(100)
+  reg_znacka String      @db.VarChar(32)
   rezervace  rezervace[]
   osoba      osoba       @relation(fields: [id_osoba], references: [id_osoba], onDelete: Cascade, onUpdate: NoAction, map: "fk_vozidlo_osoba")
 

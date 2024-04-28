@@ -1,9 +1,3 @@
-export type Service = {
-    name: string;
-    short_button_text: string;
-    description: string;
-};
-
 export type User = {
     id: number;
     name: string;

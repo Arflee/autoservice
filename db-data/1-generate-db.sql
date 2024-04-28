@@ -46,7 +46,8 @@ ALTER TABLE rezervace ADD CONSTRAINT c_fk_rezervace_mechanik CHECK ((id_mechanik
 CREATE TABLE sluzba (
     id_sluzba INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
     nazev VARCHAR(100) NOT NULL,
-    cena VARCHAR(256) NOT NULL
+    cena INTEGER NOT NULL,
+    popis VARCHAR(255) NOT NULL
 );
 ALTER TABLE sluzba ADD CONSTRAINT pk_sluzba PRIMARY KEY (id_sluzba);
 
@@ -54,7 +55,7 @@ CREATE TABLE vozidlo (
     id_vozidlo INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
     id_osoba INTEGER NOT NULL,
     model VARCHAR(100) NOT NULL,
-    reg_znacka VARCHAR(8) NOT NULL
+    reg_znacka VARCHAR(32) NOT NULL
 );
 ALTER TABLE vozidlo ADD CONSTRAINT pk_vozidlo PRIMARY KEY (id_vozidlo, id_osoba);
 

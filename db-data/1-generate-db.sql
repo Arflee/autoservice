@@ -30,6 +30,14 @@ CREATE TABLE osoba (
 );
 ALTER TABLE osoba ADD CONSTRAINT pk_osoba PRIMARY KEY (id_osoba);
 
+CREATE TABLE sluzba (
+    id_sluzba INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
+    nazev VARCHAR(100) NOT NULL,
+    cena INTEGER NOT NULL,
+    popis VARCHAR(255) NOT NULL
+);
+ALTER TABLE sluzba ADD CONSTRAINT pk_sluzba PRIMARY KEY (id_sluzba);
+
 CREATE TABLE rezervace (
     id_rezervace INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
     id_sluzba INTEGER NOT NULL,
@@ -43,13 +51,6 @@ CREATE TABLE rezervace (
 ALTER TABLE rezervace ADD CONSTRAINT pk_rezervace PRIMARY KEY (id_rezervace, id_sluzba, id_vozidlo, id_osoba);
 ALTER TABLE rezervace ADD CONSTRAINT c_fk_rezervace_mechanik CHECK ((id_mechanik IS NOT NULL AND mechanik_id_osoba IS NOT NULL) OR (id_mechanik IS NULL AND mechanik_id_osoba IS NULL));
 
-CREATE TABLE sluzba (
-    id_sluzba INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,
-    nazev VARCHAR(100) NOT NULL,
-    cena INTEGER NOT NULL,
-    popis VARCHAR(255) NOT NULL
-);
-ALTER TABLE sluzba ADD CONSTRAINT pk_sluzba PRIMARY KEY (id_sluzba);
 
 CREATE TABLE vozidlo (
     id_vozidlo INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY,

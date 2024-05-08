@@ -56,5 +56,6 @@ build-job:       # This job runs in the build stage, which runs first.
 doc-generation:
   stage: documentation
   script:
+    - npm install
     - npx typedoc --out docs
     - echo "Documentation generated."

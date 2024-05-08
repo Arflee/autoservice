@@ -1,5 +1,7 @@
 import Link from "next/link";
-
+/**
+ * @brief Testing type doc.
+ */
 export default function Page() {
   return (
     <main className="mb-[11%]">

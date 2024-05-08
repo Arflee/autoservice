@@ -28,6 +28,11 @@
       "module": "commonjs"
     }
   },
+  // "typedocOptions": {
+  //     "entryPoints": ["app/contacts/page.tsx"],
+  //     "out": "docs"
+  // },
+
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types/**/*.ts"],
   "exclude": ["node_modules"]
 }

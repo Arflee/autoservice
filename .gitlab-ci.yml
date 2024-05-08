@@ -59,6 +59,8 @@ doc-generation:
     paths:
       - public
   script:
-    - npm ci
+    - npm install
     - npm run docs
+    - mv docs/ public
     - echo "Documentation generated."
+    

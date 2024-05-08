@@ -55,6 +55,10 @@ build-job:       # This job runs in the build stage, which runs first.
 
 doc-generation:
   stage: documentation
+  image: node:16
+  artifacts:
+    paths:
+      - public
   script:
     - npm ci
     - npm run docs

@@ -61,15 +61,12 @@ pages:
   stage: deploy
   artifacts:
     paths:
-      - ./docs
+      - public
     when: always
   script:
     - npm install
     - npm run docs
-    - git add -f docs
-    - git commit -m "Update Typedoc documentation"
-    - git push
+    - mv docs public
     - echo "Documentation generated."
-  only:
-    - main
+
     

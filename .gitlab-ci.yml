@@ -61,13 +61,12 @@ pages:
   stage: deploy
   artifacts:
     paths:
-      - ./
+      - ./docs
   script:
     - npm install
     - npm install -g typescript
     - ls public
     - pwd
     - npm run docs
-    - mv docs ./
     - echo "Documentation generated."
     

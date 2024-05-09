@@ -61,10 +61,10 @@ pages:
   stage: deploy
   artifacts:
     paths:
-      - public
+      - ./
   script:
     - npm install
     - npm run docs
-    - mv docs public
+    - mv docs ./
     - echo "Documentation generated."
     

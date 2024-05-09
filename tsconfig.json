@@ -28,11 +28,6 @@
       "module": "commonjs"
     }
   },
-  "typedocOptions": {
-      "entryPoints": ["app/lib"],
-      "entryPointStrategy": "expand",
-      "out": "docs"
-  },
 
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "types/**/*.ts"],
   "exclude": ["node_modules"]

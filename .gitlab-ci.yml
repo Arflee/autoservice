@@ -68,8 +68,8 @@ pages:
     - npm run docs
     - git add docs
     - git commit -m "Update Typedoc documentation"
-    - git push origin master
+    - git push
     - echo "Documentation generated."
   only:
-    - master 
+    - main
     

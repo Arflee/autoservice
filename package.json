@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "docs": "typedoc"
+    "docs": "typedoc --entryPoints app/lib --out docs --entryPointStrategy expand"
   },
   "dependencies": {
     "@auth/core": "^0.29.0",

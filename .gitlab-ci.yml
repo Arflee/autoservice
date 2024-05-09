@@ -18,11 +18,15 @@
 
 stages:          # List of stages for jobs, and their order of execution
     - build
-#   - deploy
+    - deploy
     - test
-    - documentation
 
 image: node
+
+cache:
+  paths:
+    - node_modules/
+    - public/
 
 postgres:
   stage: build
@@ -53,13 +57,16 @@ build-job:       # This job runs in the build stage, which runs first.
 #     - echo "Deploying application..."
 #     - echo "Application successfully deployed."
 
-doc-generation:
-  stage: documentation
+pages:
+  stage: deploy
   artifacts:
     paths:
-      - ./docs
+      - ./
   script:
     - npm install
+    - ls public
+    - pwd
     - npm run docs
+    - mv docs ./
     - echo "Documentation generated."
     

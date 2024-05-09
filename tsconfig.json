@@ -29,7 +29,7 @@
     }
   },
   "typedocOptions": {
-      "entryPoints": ["app/contacts/page.tsx"],
+      "entryPoints": ["app/lib"],
       "entryPointStrategy": "expand",
       "out": "docs"
   },

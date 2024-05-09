@@ -64,6 +64,8 @@ pages:
       - ./
   script:
     - npm install
+    - ls public
+    - pwd
     - npm run docs
     - mv docs ./
     - echo "Documentation generated."

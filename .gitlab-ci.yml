@@ -57,10 +57,9 @@ doc-generation:
   stage: documentation
   artifacts:
     paths:
-      - public
+      - ./docs
   script:
     - npm install
     - npm run docs
-    - mv docs/ public
     - echo "Documentation generated."
     

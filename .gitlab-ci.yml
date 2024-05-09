@@ -20,6 +20,7 @@ stages:          # List of stages for jobs, and their order of execution
     - build
 #   - deploy
     - test
+    - documentation
 
 image: node
 
@@ -51,3 +52,15 @@ build-job:       # This job runs in the build stage, which runs first.
 #   script:
 #     - echo "Deploying application..."
 #     - echo "Application successfully deployed."
+
+doc-generation:
+  stage: documentation
+  artifacts:
+    paths:
+      - public
+  script:
+    - npm install
+    - npm run docs
+    - mv docs/ public
+    - echo "Documentation generated."
+    

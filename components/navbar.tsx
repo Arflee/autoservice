@@ -4,7 +4,7 @@ import Link from "next/link";
 import { redirect, usePathname } from "next/navigation";
 import clsx from "clsx";
 import Image from "next/image";
-import logo from "../public/logo.png";
+import logo from "@public/logo.png";
 import { useSession } from "next-auth/react";
 
 const links = [

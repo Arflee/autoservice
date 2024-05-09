@@ -10,7 +10,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "docs": "typedoc --out docs"
+    "docs": "typedoc"
   },
   "dependencies": {
     "@auth/core": "^0.29.0",

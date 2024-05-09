@@ -26,6 +26,7 @@ image: node
 cache:
   paths:
     - node_modules/
+    - public/
 
 postgres:
   stage: build

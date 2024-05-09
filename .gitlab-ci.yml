@@ -65,9 +65,11 @@ pages:
     when: always
   script:
     - npm install
-    - npm install -g typescript
-    - ls public
-    - pwd
     - npm run docs
+    - git add docs
+    - git commit -m "Update Typedoc documentation"
+    - git push origin master
     - echo "Documentation generated."
+  only:
+    - master 
     

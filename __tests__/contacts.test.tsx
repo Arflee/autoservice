@@ -5,5 +5,5 @@ import Page from '../app/contacts/page'
 // todo remake test for contacts
 test('Page', () => {
   render(<Page />)
-  expect(screen.getByRole('heading', { level: 1, name: 'Contacts' })).toBeDefined()
+  expect(screen.getByRole('heading', { level: 1, name: 'Kontakty' })).toBeDefined()
 })

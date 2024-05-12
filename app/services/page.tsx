@@ -1,6 +1,5 @@
 export const dynamic = 'force-dynamic'
 
-
 import ServiceCard from "@/components/serviceCard";
 import { fetchServices } from "../lib/data";
 import { sluzba } from "@prisma/client";

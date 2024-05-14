@@ -17,7 +17,9 @@ export default defineConfig({
         'app/layout.tsx',
         'app/not-found.tsx',
         'app/api/**',
-        'components/sessionWrapper.tsx'
+        'components/sessionWrapper.tsx',
+        'app/lib/reservationDAOPrisma.ts',
+        'app/lib/serviceDAOPrisma.ts'
       ]
     }
   },

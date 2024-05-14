@@ -50,21 +50,27 @@ describe("Testing typescript functions", () => {
     ).toStrictEqual([8, 9, 10, 11, 12]);
   });
 
-  const reservationDaoMock = {GetAllReservations: vi.fn()};
-  const reservationResolver = new ReservationApiResolver(reservationDaoMock as any);
+  const reservationDaoMock = { GetAllReservations: vi.fn() };
+  const reservationResolver = new ReservationApiResolver(
+    reservationDaoMock as any
+  );
 
-  it('should return reservations', async () => {
-    reservationDaoMock.GetAllReservations.mockImplementationOnce(() => {return [{id_rezervace: 1}]});
+  it("should return reservations", async () => {
+    reservationDaoMock.GetAllReservations.mockImplementationOnce(() => {
+      return [{ id_rezervace: 1 }];
+    });
     const reservations = await reservationResolver.fetchReservations();
     expect(reservationDaoMock.GetAllReservations).toHaveBeenCalledTimes(1);
     expect(reservations).toHaveLength(1);
   });
 
-  const servicecDaoMock = {GetAllServices: vi.fn()};
+  const servicecDaoMock = { GetAllServices: vi.fn() };
   const serviceResolver = new ServiceApiResolver(servicecDaoMock as any);
 
-  it('should return services', async () => {
-    servicecDaoMock.GetAllServices.mockImplementationOnce(() => {return [{id_sluzba: 1}]});
+  it("should return services", async () => {
+    servicecDaoMock.GetAllServices.mockImplementationOnce(() => {
+      return [{ id_sluzba: 1 }];
+    });
     const reservations = await serviceResolver.fetchServices();
     expect(servicecDaoMock.GetAllServices).toHaveBeenCalledTimes(1);
     expect(reservations).toHaveLength(1);

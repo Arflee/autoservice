@@ -5,10 +5,6 @@ import LogOutButton from "./logOutButton";
 import { sluzba } from "@prisma/client";
 import { formatDateTime } from "@/app/lib/data";
 
-const addReservation = () => {
-  //TODO: replace with actual function adding new reservation to the database
-};
-
 export default function ManagerPage({
   services,
   reservations,
@@ -71,7 +67,6 @@ export default function ManagerPage({
         </select>
 
         <button
-          onClick={() => addReservation()}
           className="inline-block mb-5 px-6 py-3 bg-yellow-500 text-white font-bold rounded hover:bg-yellow-600 transition duration-200"
         >
           Přidat rezervaci

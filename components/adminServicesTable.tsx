@@ -1,6 +1,6 @@
 'use client';
 
-import {sluzba } from "@prisma/client";
+import { sluzba } from "@prisma/client";
 
 const deleteService = (id: number) => {
     // TODO: replace with actual delete logic

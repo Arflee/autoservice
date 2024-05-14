@@ -3,7 +3,6 @@
 import { useState } from "react";
 import LogOutButton from "./logOutButton";
 import { rezervace } from "@prisma/client";
-import { formatDateTime } from "@/app/lib/data";
 
 export default function MechanicPage(props: any) {
     const [reservations, setReservations] = useState<rezervace[]>([]);

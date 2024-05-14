@@ -1,10 +1,8 @@
 "use client";
 
 import Link from "next/link";
-import { redirect, usePathname } from "next/navigation";
-import clsx from "clsx";
+import { usePathname } from "next/navigation";
 import Image from "next/image";
-//import logo from "@public/logo.png";
 import { useSession } from "next-auth/react";
 
 const links = [
@@ -28,9 +26,10 @@ export default function Navbar() {
         <Link href="/">
           <div className="ml-10 mr-10 ">
             <Image
-              src="../public/logo.png"
+              src="/logo.png"
               alt="Autoservis logo"
               width={230}
+              height={386}
               className="mt"
             />
           </div>

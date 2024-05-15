@@ -7,13 +7,14 @@ stages:
   
 image: node
 
-cache:
-  paths:
-    - node_modules/
-    - public/
-
 install:
   stage: install
+  artifacts:
+    paths:
+      - package-lock.json
+      - node_modules/
+    when: always
+       
   script:
     - echo "Installing node modules..."
     - npm i
@@ -37,9 +38,6 @@ test:
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   needs: ["install"]
   script:
-    - rm package-lock.json
-    - rm -r node_modules
-    - npm install
     - npm run test
 
 build-job:       # This job runs in the build stage, which runs first.

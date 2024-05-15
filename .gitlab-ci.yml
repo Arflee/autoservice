@@ -67,8 +67,7 @@ sonarqube-check:
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
-  needs:
-    - ["test"]
+  needs: ["install"]
   script:
     - echo "Compiling the code..."
     - npm run build

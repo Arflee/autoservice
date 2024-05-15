@@ -5,7 +5,9 @@ import { ServiceApiResolver } from "@/app/lib/serviceApiResolver";
 
 describe("Testing typescript functions", () => {
   test("Format date time", () => {
-    expect(formatDateTime(new Date("2019-01-16"))).toBe(
+    const date = new Date("2019-01-16")
+    date.setHours(1)
+    expect(formatDateTime(date)).toBe(
       "středa 16. ledna 2019 v 1:00"
     );
   });

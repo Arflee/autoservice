@@ -18,7 +18,6 @@ install:
       - package-lock.json
       - node_modules/
     when: always
-       
   script:
     - echo "Installing node modules..."
     - npm i
@@ -42,7 +41,7 @@ test:
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   needs: ["install"]
   script:
-    - npm run test
+    - npm run coverage
     
 sonarqube-check:
   image: 

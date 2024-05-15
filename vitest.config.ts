@@ -7,6 +7,7 @@ export default defineConfig({
   test: {
     environment: 'jsdom',
     coverage: {
+      reporter: ['lcov', 'html'],
       exclude: [
         ...coverageConfigDefaults.exclude,
         'docs/*',

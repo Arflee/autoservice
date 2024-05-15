@@ -37,12 +37,15 @@ test:
   coverage: /All files[^|]*\|[^|]*\s+([\d\.]+)/
   needs: ["install"]
   script:
+    - rm package-lock.json
+    - rm -r node_modules
+    - npm install
     - npm run test
 
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   needs:
-    - ["install"]
+    - ["test"]
   script:
     - echo "Compiling the code..."
     - npm run build

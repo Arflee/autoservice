@@ -7,6 +7,10 @@ stages:
   
 image: node
 
+cache:
+  paths:
+    - node_modules/
+
 install:
   stage: install
   artifacts:
@@ -39,26 +43,6 @@ test:
   needs: ["install"]
   script:
     - npm run test
-
-build-job:       # This job runs in the build stage, which runs first.
-  stage: build
-  needs:
-    - ["test"]
-  script:
-    - echo "Compiling the code..."
-    - npm run build
-    - echo "Compile complete."
-
-pages:
-  stage: deploy
-  artifacts:
-    paths:
-      - ./docs
-    when: always
-  script:
-    - npm run docs
-    - echo "Documentation generated."
-
     
 sonarqube-check:
   image: 
@@ -78,3 +62,22 @@ sonarqube-check:
   allow_failure: true
   only:
     - main
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  needs:
+    - ["test"]
+  script:
+    - echo "Compiling the code..."
+    - npm run build
+    - echo "Compile complete."
+
+pages:
+  stage: deploy
+  artifacts:
+    paths:
+      - ./docs
+    when: always
+  script:
+    - npm run docs
+    - echo "Documentation generated."

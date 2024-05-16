@@ -68,6 +68,13 @@ sonarqube-check:
 build-job:       # This job runs in the build stage, which runs first.
   stage: build
   needs: ["install"]
+  artifacts:
+    paths:
+      - next.config.mjs
+      - node_modules/
+      - package.json
+      - .next
+    when: always
   script:
     - echo "Compiling the code..."
     - npm run build

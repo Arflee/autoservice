@@ -99,3 +99,7 @@ install-package:
     paths:
       - package.json
       - package-lock.json
+    when: always
+  script:
+    - echo "Building..."
+  

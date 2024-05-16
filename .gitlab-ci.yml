@@ -71,14 +71,18 @@ build-job:       # This job runs in the build stage, which runs first.
   artifacts:
     name: "build-package"
     paths:
-      - .dockerignore
-      - docker-compose.yml
-      - Dockerfile
-      - .env
+      - build-package/
     when: always
   script:
     - echo "Compiling the code..."
+    - mkdir build-package
     - npm run build
+    - mv docker-compose.yml ./build-package
+    - mv Dockerfile ./build-package
+    - mv .dockerignore ./build-package
+    - mv .env ./build-package
+    - mv package.json ./build-package
+    - mv package-lock.json ./build-package
     - echo "Compile complete."
 
 pages:

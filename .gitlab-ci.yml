@@ -70,10 +70,10 @@ build-job:       # This job runs in the build stage, which runs first.
   needs: ["install"]
   artifacts:
     paths:
-      - next.config.mjs
-      - node_modules/
-      - package.json
-      - .next
+      - .dockerignore
+      - .docker-compose.yml
+      - Dockerfile
+      - .env
     when: always
   script:
     - echo "Compiling the code..."

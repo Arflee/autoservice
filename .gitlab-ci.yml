@@ -69,13 +69,12 @@ build-job:       # This job runs in the build stage, which runs first.
   stage: build
   needs: ["install"]
   artifacts:
+    name: "build-package"
     paths:
       - .dockerignore
       - docker-compose.yml
       - Dockerfile
       - .env
-      - package.json
-      - package-lock.json
     when: always
   script:
     - echo "Compiling the code..."
@@ -91,3 +90,12 @@ pages:
   script:
     - npm run docs
     - echo "Documentation generated."
+
+install-package:
+  stage: build
+  needs: ["build-job"]
+  artifacts:
+    name: "build-package"
+    paths:
+      - package.json
+      - package-lock.json

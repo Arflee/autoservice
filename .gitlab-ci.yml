@@ -90,6 +90,7 @@ build-job:
     - mv auth.ts ./build-package
     - mv middleware.ts ./build-package
     - mv ./db-data ./build-package
+    - mv tsconfig.json ./build-package
     - echo "Compile complete."
 
 pages:

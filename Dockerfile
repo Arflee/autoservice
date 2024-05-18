@@ -7,7 +7,7 @@ WORKDIR /app
 
 COPY package.json package-lock.json* ./
 COPY prisma ./
-RUN npm i
+RUN npm ci
 
 FROM base AS builder
 WORKDIR /app

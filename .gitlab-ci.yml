@@ -91,6 +91,9 @@ build-job:
     - mv middleware.ts ./build-package
     - mv ./db-data ./build-package
     - mv tsconfig.json ./build-package
+    - mv next.config.mjs ./build-package
+    - mv postcss.config.js ./build-package
+    - mv tailwind.config.js ./build-package
     - echo "Compile complete."
 
 pages:

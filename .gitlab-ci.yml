@@ -65,7 +65,7 @@ sonarqube-check:
   only:
     - main
 
-build-job:       # This job runs in the build stage, which runs first.
+build-job:
   stage: build
   needs: ["install"]
   artifacts:
@@ -87,6 +87,9 @@ build-job:       # This job runs in the build stage, which runs first.
     - mv ./app ./build-package
     - mv ./components ./build-package
     - mv ./public ./build-package
+    - mv auth.ts ./build-package
+    - mv middleware.ts ./build-package
+    - mv ./db-data ./build-package
     - echo "Compile complete."
 
 pages:

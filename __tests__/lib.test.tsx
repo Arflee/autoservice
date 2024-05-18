@@ -1,7 +1,8 @@
 import { describe, expect, it, test, vi } from "vitest";
-import { formatDateTime, getAvailableTimeSlots } from "@/app/lib/data";
+import { formatDateTime } from "@/app/lib/data";
 import { ReservationApiResolver } from "@/app/lib/reservationApiResolver";
 import { ServiceApiResolver } from "@/app/lib/serviceApiResolver";
+import { getAvailableTimeSlots } from "@/components/calendar";
 
 describe("Testing typescript functions", () => {
   test("Format date time", () => {

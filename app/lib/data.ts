@@ -36,27 +36,3 @@ export async function postReservation(reservation: Reservation) {
   }
 }
 /* c8 ignore stop */
-
-export function getAvailableTimeSlots(
-  allReservations: rezervace[],
-  date: Date
-) {
-  const availableTimeSlots = [8, 9, 10, 11, 12];
-  for (let i = 0; i < allReservations.length; i++) {
-    const convertedReservation = new Date(allReservations[i].datum);
-    const reservationDay = convertedReservation.getDay();
-    const reservationMonth = convertedReservation.getMonth();
-
-    if (
-      reservationDay == date.getDay() &&
-      reservationMonth == date.getMonth()
-    ) {
-      const reservationHours = +allReservations[i].cas.slice(0, 2);
-      if (availableTimeSlots.includes(reservationHours)) {
-        const timeSlotIndex = availableTimeSlots.indexOf(reservationHours);
-        availableTimeSlots.splice(timeSlotIndex, 1);
-      }
-    }
-  }
-  return availableTimeSlots;
-}

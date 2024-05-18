@@ -84,6 +84,9 @@ build-job:       # This job runs in the build stage, which runs first.
     - mv package.json ./build-package
     - mv package-lock.json ./build-package
     - mv ./prisma ./build-package
+    - mv ./app ./build-package
+    - mv ./components ./build-package
+    - mv ./public ./build-package
     - echo "Compile complete."
 
 pages:

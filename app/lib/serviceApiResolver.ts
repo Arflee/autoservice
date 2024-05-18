@@ -1,5 +1,9 @@
 import { ServiceDAO } from "./serviceDAO";
 
+/**
+ * @description Class uses pattern Strategy to use different connection methods to database
+ * To change DAO class, you need to implement its interface and pass to ApiResolver
+*/
 export class ServiceApiResolver {
   private serviceDao: ServiceDAO;
 

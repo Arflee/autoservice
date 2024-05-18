@@ -3,6 +3,9 @@ import { Reservation } from "./definitions";
 import { ReservationDAO } from "./reservationDAO";
 import { prisma } from "./data";
 
+/**
+ * @description Implementation of ReservationDAO interface to use Prisma for database connection
+ */
 export class ReservationDAOPrisma implements ReservationDAO {
   public async PostReservation(data: Reservation): Promise<void> {
     let person;
@@ -70,10 +73,12 @@ export class ReservationDAOPrisma implements ReservationDAO {
       });
     }
   }
+
   public async GetAllReservations(): Promise<rezervace[]> {
     const reservations = await prisma.rezervace.findMany();
     return reservations;
   }
+  
   public async GetReservationAllInfo(): Promise<Reservation[]> {
     {
       const reservations = await prisma.$queryRaw<Reservation[]>`select

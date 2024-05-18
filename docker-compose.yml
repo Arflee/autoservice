@@ -17,7 +17,7 @@ services:
     networks:
       - auto-net
 
-  frontend:
+  autoservice-frontend:
     container_name: autoservice-frontend
     image: autoservice-frontend
     build:

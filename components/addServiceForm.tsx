@@ -1,7 +1,7 @@
 'use client';
 
 const addService = () => {
-    //TODO: replace with actual add to the db (ServiceDAO.addService(Service('name', 'price')))
+    console.log('adding new service');
 };
 
 export default function AddServiceForm() {

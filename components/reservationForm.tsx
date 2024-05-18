@@ -1,7 +1,8 @@
 "use client";
 
-import { postReservation } from "@/app/lib/data";
 import { Reservation } from "@/app/lib/definitions";
+import { ReservationApiResolver } from "@/app/lib/reservationApiResolver";
+import { ReservationDAOPrisma } from "@/app/lib/reservationDAOPrisma";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
 
@@ -38,7 +39,8 @@ export default function ReservationForm({
     } satisfies Reservation;
 
     try {
-      const response = await postReservation(reservation);
+      const reservationResolver = new ReservationApiResolver(new ReservationDAOPrisma());
+      const response = await reservationResolver.postReservation(reservation);
       if (!response.ok) {
         throw new Error("Failed to submit the data. Please try again.");
       }

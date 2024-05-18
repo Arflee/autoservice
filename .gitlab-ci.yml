@@ -93,7 +93,7 @@ build-job:
     - mv tsconfig.json ./build-package
     - mv next.config.mjs ./build-package
     - mv postcss.config.js ./build-package
-    - mv tailwind.config.js ./build-package
+    - mv tailwind.config.ts ./build-package
     - echo "Compile complete."
 
 pages:

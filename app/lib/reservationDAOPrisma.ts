@@ -62,7 +62,7 @@ export class ReservationDAOPrisma implements ReservationDAO {
         },
       });
 
-      const reservation = await prisma.rezervace.create({
+      await prisma.rezervace.create({
         data: {
           id_osoba: person.id_osoba,
           id_sluzba: 1,

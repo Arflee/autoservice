@@ -5,7 +5,7 @@ import LogOutButton from "./logOutButton";
 import { rezervace } from "@prisma/client";
 
 export default function MechanicPage(props: any) {
-    const [reservations, setReservations] = useState<rezervace[]>([]);
+    const [reservations, _] = useState<rezervace[]>([]);
 
     return (
         <div className='text-center'>

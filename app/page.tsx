@@ -3,14 +3,14 @@ export const dynamic = 'force-dynamic'
 import ServiceCard from "@/components/serviceCard";
 import Image from "next/image";
 import Link from "next/link";
-import { sluzba } from "@prisma/client";
 import { ServiceApiResolver } from "./lib/serviceApiResolver";
 import { ServiceDAOPrisma } from "./lib/serviceDAOPrisma";
 
 export default async function Home() {
   const serviceResolver = new ServiceApiResolver(new ServiceDAOPrisma());
-  const services = await serviceResolver.fetchServices() as sluzba[];
+  const services = await serviceResolver.fetchServices();
   const firstThreeServices = services.slice(0, 3);
+
   return (
     <main>
       <div className="relative mb-10">

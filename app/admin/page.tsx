@@ -5,7 +5,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/auth";
 import MechanicPage from "@/components/mechanicPage";
 import ManagerPage from "@/components/managerPage";
-import { sluzba } from "@prisma/client";
 import { User } from "../lib/definitions";
 import { ServiceApiResolver } from "../lib/serviceApiResolver";
 import { ServiceDAOPrisma } from "../lib/serviceDAOPrisma";
@@ -22,10 +21,10 @@ export default async function Home() {
     }
 
     const serviceResolver = new ServiceApiResolver(new ServiceDAOPrisma());
-    const reservationResolver = new ReservationApiResolver(new ReservationDAOPrisma())
+    const reservationResolver = new ReservationApiResolver(new ReservationDAOPrisma());
 
-    const services = await serviceResolver.fetchServices() as sluzba[]
-    const reservations = await reservationResolver.fetchReservationList()
+    const services = await serviceResolver.fetchServices();
+    const reservations = await reservationResolver.fetchReservationList();
     
     return (
         <main>

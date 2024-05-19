@@ -11,8 +11,8 @@ export function getAvailableTimeSlots(
   date: Date
 ) {
   const availableTimeSlots = [8, 9, 10, 11, 12];
-  for (let i = 0; i < allReservations.length; i++) {
-    const convertedReservation = new Date(allReservations[i].datum);
+  for (const element of allReservations) {
+    const convertedReservation = new Date(element.datum);
     const reservationDay = convertedReservation.getDay();
     const reservationMonth = convertedReservation.getMonth();
 
@@ -20,7 +20,7 @@ export function getAvailableTimeSlots(
       reservationDay == date.getDay() &&
       reservationMonth == date.getMonth()
     ) {
-      const reservationHours = +allReservations[i].cas.slice(0, 2);
+      const reservationHours = +element.cas.slice(0, 2);
       if (availableTimeSlots.includes(reservationHours)) {
         const timeSlotIndex = availableTimeSlots.indexOf(reservationHours);
         availableTimeSlots.splice(timeSlotIndex, 1);

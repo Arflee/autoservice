@@ -1,8 +1,6 @@
 import { expect, test, vi } from "vitest";
 import { render, screen } from "@testing-library/react";
 import ReservationForm from "@/components/reservationForm";
-import { MemoryRouter } from "react-router-dom";
-import RootLayout from "@/app/layout";
 
 vi.mock("next/navigation", () => ({
     useRouter() {

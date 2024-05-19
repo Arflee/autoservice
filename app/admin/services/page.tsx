@@ -5,11 +5,10 @@ import Link from "next/link";
 import AddServiceForm from "@/components/addServiceForm";
 import { ServiceApiResolver } from "@/app/lib/serviceApiResolver";
 import { ServiceDAOPrisma } from "@/app/lib/serviceDAOPrisma";
-import { sluzba } from "@prisma/client";
 
 export default async function Home() {
   const serviceResolver = new ServiceApiResolver(new ServiceDAOPrisma());
-  const services = await serviceResolver.fetchServices() as sluzba[]
+  const services = await serviceResolver.fetchServices();
 
   return (
     <main className="text-center">

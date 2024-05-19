@@ -3,8 +3,14 @@ export const dynamic = 'force-dynamic'
 import LogOutButton from "@/components/logOutButton";
 import Link from "next/link";
 import AddServiceForm from "@/components/addServiceForm";
+import { ServiceApiResolver } from "@/app/lib/serviceApiResolver";
+import { ServiceDAOPrisma } from "@/app/lib/serviceDAOPrisma";
+import { sluzba } from "@prisma/client";
 
 export default async function Home() {
+  const serviceResolver = new ServiceApiResolver(new ServiceDAOPrisma());
+  const services = await serviceResolver.fetchServices() as sluzba[]
+
   return (
     <main className="text-center">
       <div className="flex justify-between px-[20%] text-xl pt-5 pb-2 bg-stone-300">
@@ -23,7 +29,11 @@ export default async function Home() {
       </h1>
       <AddServiceForm/>
       <h1 className="text-xl text-center mb-5">Nabízené služby:</h1>
-      
+      {services.map((service) => (
+            <option key={service.id_sluzba} value={service.id_sluzba}>
+              {service.nazev}
+            </option>
+          ))}
     </main>
   );
 }
